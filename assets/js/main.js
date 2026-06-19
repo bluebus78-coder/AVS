@@ -13,20 +13,23 @@ document.querySelectorAll('[data-contact]').forEach((form) => {
   form.addEventListener('submit', async (event) => {
     event.preventDefault();
     const data = new FormData(form);
+    const bugType = String(data.get('bugType') || '').trim();
+    const rawMessage = String(data.get('message') || '').trim();
+    const message = bugType ? `[오류 유형] ${bugType}\n\n${rawMessage}` : rawMessage;
     const payload = {
       name: data.get('name') || '',
       contact: data.get('contact') || '',
-      message: data.get('message') || '',
+      message,
       consent: data.get('consent') === 'on',
     };
 
     if (status) {
-      status.textContent = '메일을 발송하고 있습니다.';
+      status.textContent = '접수 내용을 전송하고 있습니다.';
       status.dataset.state = 'pending';
     }
     if (button) {
       button.disabled = true;
-      button.textContent = '메일 발송 중';
+      button.textContent = '전송 중';
     }
 
     try {
@@ -38,20 +41,20 @@ document.querySelectorAll('[data-contact]').forEach((form) => {
       const result = await response.json().catch(() => ({}));
 
       if (!response.ok || result.ok === false) {
-        const message = result.code === 'MAIL_ENV_MISSING'
-          ? '메일 발송 설정이 필요합니다. 배포 환경변수 RESEND_API_KEY, CONTACT_TO, CONTACT_FROM을 확인해 주세요.'
-          : result.message || '메일 발송에 실패했습니다.';
-        throw new Error(message);
+        const messageText = result.code === 'MAIL_ENV_MISSING'
+          ? '메일 발송 설정이 필요합니다. 관리자에게 문의해 주세요.'
+          : result.message || '접수 전송에 실패했습니다.';
+        throw new Error(messageText);
       }
 
       if (status) {
-        status.textContent = result.message || '문의 메일이 정상 발송되었습니다.';
+        status.textContent = result.message || '정상 접수되었습니다.';
         status.dataset.state = 'success';
       }
       form.reset();
     } catch (error) {
       if (status) {
-        status.textContent = error.message || '메일 발송 중 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.';
+        status.textContent = error.message || '접수 중 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.';
         status.dataset.state = 'error';
       }
     } finally {
