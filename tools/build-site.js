@@ -10,11 +10,11 @@ const nav = [
   ["workflow.html", "운영흐름"],
   ["dashboard.html", "화면구성"],
   ["security.html", "보안/리스크"],
-  ["download.html", "도입안내"],
+  ["download.html", "다운로드센터"],
   ["install.html", "설치가이드"],
-  ["changelog.html", "업데이트"],
-  ["faq.html", "FAQ"],
   ["contact.html", "문의"],
+  ["bug-report.html", "버그접수"],
+  ["privacy.html", "개인정보처리방침"],
 ];
 
 function layout({ file, title, description, body, sub = false }) {
@@ -226,29 +226,6 @@ const pages = {
 ], "value")}</section>`,
   }),
 
-  "changelog.html": layout({
-    file: "changelog.html",
-    title: "제품 릴리즈",
-    description: "Alpha Viper System 제품 릴리즈 히스토리",
-    sub: true,
-    body: `${pageHead("Release Notes", "V1.0 정식 기준으로 화면과 운영 기능을 통합했습니다.", "엔진, 포트폴리오, 주문계획, 알림, 백업/복구, 시스템 설정을 실제 운영 흐름에 맞춰 정리했습니다.")}
-<section class="section"><div class="wrap release-line"><article class="release-card current"><span class="version-pill">V1.0</span><h3>운영 콘솔 통합</h3><p>대시보드와 주요 설정 화면을 실제 제품 화면 기준으로 정리했습니다.</p><ul class="release-list"><li>시장바와 자동매매 상태 표시</li><li>엔진 관리와 포트폴리오 구성</li><li>주문계획과 거래로그 확인</li><li>백업/복구 및 시스템 설정</li></ul></article><article class="release-card"><span class="version-pill">Settings</span><h3>계좌/API 설정</h3><p>증권사, 투자 모드, Base URL, API Key/Secret 입력 흐름을 개선했습니다.</p></article><article class="release-card"><span class="version-pill">Operation</span><h3>운영 안정성</h3><p>알림, 백업, 로그, 스케줄링 화면을 운영자가 이해하기 쉽게 보강했습니다.</p></article><article class="release-card"><span class="version-pill">Site</span><h3>마케팅 사이트 정리</h3><p>민감한 운영 정보 없이 제품 가치와 도입 문의 흐름 중심으로 재구성했습니다.</p></article></div></section>`,
-  }),
-
-  "faq.html": layout({
-    file: "faq.html",
-    title: "FAQ",
-    description: "Alpha Viper System 자주 묻는 질문",
-    sub: true,
-    body: `${pageHead("FAQ", "도입 전 자주 확인하는 질문", "제품 검토 단계에서 필요한 정보를 정리했습니다.")}
-<section class="section"><div class="wrap faq">
-<details open><summary>실전투자 전에 모의 검증이 가능한가요?</summary><p>가능합니다. 계좌/API 설정에서 투자 모드를 분리하고, 모의 또는 가상 운용 흐름으로 기능과 로그를 먼저 확인할 수 있습니다.</p></details>
-<details><summary>자동매매 실행 중 상태를 확인할 수 있나요?</summary><p>자동매매 모니터에서 단계별 진행 상태, 실시간 로그, 대기 주문, API 상태를 확인할 수 있습니다.</p></details>
-<details><summary>설정값과 거래내역 백업이 가능한가요?</summary><p>백업/복구 화면에서 설정값, 거래내역, 런타임 상태를 관리할 수 있습니다.</p></details>
-<details><summary>도입 조건은 어떻게 확인하나요?</summary><p>도입 범위와 지원 조건은 문의 후 별도 안내됩니다.</p></details>
-</div></section>`,
-  }),
-
   "contact.html": layout({
     file: "contact.html",
     title: "문의",
@@ -271,8 +248,8 @@ const pages = {
     title: "개인정보처리방침",
     description: "Alpha Viper System 개인정보처리방침",
     sub: true,
-    body: `${pageHead("Privacy", "개인정보처리방침", "문의 응대와 고객지원 과정에서 처리되는 개인정보 항목을 안내합니다.")}
-<section class="section"><div class="wrap legalbox"><h2>1. 처리 목적</h2><p>제품 문의 응대, 도입 검토, 설치 안내, 오류 대응을 위해 필요한 범위에서 개인정보를 처리합니다.</p><h2>2. 수집 항목</h2><ul><li>문의자 식별명</li><li>회신 연락처</li><li>문의 내용</li><li>설치 및 오류 대응에 필요한 사용 환경 정보</li></ul><h2>3. 보유 기간</h2><p>개인정보는 처리 목적 달성 후 파기하며, 관계 법령 또는 분쟁 대응에 필요한 경우 필요한 기간 동안 보관할 수 있습니다.</p><h2>4. 제3자 제공</h2><p>법령에 근거가 있거나 사용자의 동의가 있는 경우를 제외하고 개인정보를 외부에 제공하지 않습니다.</p><h2>5. 문의</h2><p>문의는 제품 문의 양식을 통해 접수합니다.</p></div></section>`,
+    body: `${pageHead("Privacy", "개인정보처리방침", "제품 문의, 버그 접수, 설치 안내, 고객지원 과정에서 처리되는 개인정보 기준을 안내합니다.")}
+<section class="section"><div class="wrap legalbox"><h2>1. 처리 목적</h2><p>Alpha Viper System은 제품 문의 응대, 도입 검토, 설치 안내, 오류 확인, 고객지원, 접수 이력 관리를 위해 필요한 범위에서 개인정보를 처리합니다.</p><h2>2. 수집 항목</h2><ul><li>문의자 식별명 또는 성함</li><li>회신 연락처</li><li>문의 또는 버그 접수 내용</li><li>오류 확인에 필요한 사용 버전, 설치 환경, 재현 순서, 로그 또는 화면 캡처 정보</li></ul><h2>3. 보유 및 이용 기간</h2><p>개인정보는 문의 응대와 오류 대응 목적이 달성된 후 파기합니다. 다만 분쟁 대응, 서비스 품질 개선, 관계 법령 준수를 위해 필요한 경우 필요한 기간 동안 보관할 수 있습니다.</p><h2>4. 제3자 제공</h2><p>법령에 근거가 있거나 사용자의 별도 동의가 있는 경우를 제외하고 개인정보를 외부에 제공하지 않습니다.</p><h2>5. 처리 위탁</h2><p>문의 및 버그 접수 메일 발송을 위해 메일 발송 서비스가 사용될 수 있습니다. 이 경우 접수 내용은 메일 전송과 회신 목적 범위에서만 처리됩니다.</p><h2>6. 이용자 권리</h2><p>이용자는 본인의 개인정보 열람, 정정, 삭제, 처리 정지를 요청할 수 있습니다. 요청은 문의 양식 또는 버그 접수 양식을 통해 접수할 수 있습니다.</p><h2>7. 안전성 확보 조치</h2><p>접수 정보는 접근 권한을 제한하고, 오류 대응 목적에 필요한 범위에서만 확인합니다. 민감한 계좌 비밀번호, API Secret, 인증 파일 원본은 문의 또는 버그 접수 내용에 포함하지 않는 것을 권장합니다.</p><h2>8. 문의</h2><p>개인정보 관련 문의는 <a href="contact.html">문의</a> 또는 <a href="bug-report.html">버그접수</a> 페이지를 통해 접수합니다.</p></div></section>`,
   }),
 
   "terms.html": layout({

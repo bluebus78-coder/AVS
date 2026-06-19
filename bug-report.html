@@ -1,0 +1,140 @@
+﻿<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>버그접수 | Alpha Viper System</title>
+<meta name="description" content="Alpha Viper System 설치, 실행, 데이터 동기화, 주문, 계좌, 라이선스 오류 접수">
+<meta property="og:title" content="버그접수 | Alpha Viper System">
+<meta property="og:description" content="Alpha Viper System 오류와 개선 요청을 접수합니다.">
+<meta property="og:type" content="website">
+<link rel="icon" href="assets/images/favicon.svg">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/rev8.css">
+<style>
+.bug-layout{display:grid;grid-template-columns:.9fr 1.1fr;gap:22px;align-items:start}
+.bug-panel{border:1px solid rgba(86,236,255,.2);border-radius:22px;background:linear-gradient(180deg,rgba(9,24,44,.78),rgba(5,13,27,.9));box-shadow:0 20px 58px rgba(0,0,0,.24);padding:28px}
+.bug-panel h2{margin-top:0}
+.bug-panel p{color:var(--muted);line-height:1.75}
+.bug-form{display:grid;gap:16px}
+.bug-form label{font-weight:800;color:#dce9f7}
+.bug-form input,.bug-form select,.bug-form textarea{width:100%;margin-top:8px;background:#061426;border:1px solid rgba(112,239,230,.16);border-radius:15px;color:#fff;padding:14px 16px;font-family:inherit}
+.bug-form textarea{resize:vertical}
+.bug-help{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:18px}
+.bug-help span{border:1px solid rgba(112,239,230,.14);border-radius:14px;background:rgba(255,255,255,.032);padding:12px 13px;color:#c9d8e7;font-size:14px}
+.form-status{min-height:22px;margin:0;color:var(--muted)}
+.form-status[data-state="success"]{color:#5df08b}
+.form-status[data-state="error"]{color:#ff7d7d}
+.form-status[data-state="pending"]{color:#70efe6}
+@media(max-width:900px){.bug-layout{grid-template-columns:1fr}.bug-help{grid-template-columns:1fr}}
+</style>
+</head>
+<body class="subpage">
+<div class="noise"></div>
+<header class="top">
+  <div class="wrap nav">
+    <a class="brand" href="index.html">
+      <img src="assets/images/logo-symbol.png" alt="Alpha Viper">
+      <span><b>Alpha Viper</b><small>QUANT ENGINE · V1.0</small></span>
+    </a>
+    <button class="hamb" type="button" aria-label="메뉴 열기" data-menu>☰</button>
+    <nav data-nav>
+      <a href="index.html">홈</a>
+      <a href="product.html">제품소개</a>
+      <a href="features.html">핵심기능</a>
+      <a href="workflow.html">운영흐름</a>
+      <a href="dashboard.html">화면구성</a>
+      <a href="security.html">보안/리스크</a>
+      <a href="download.html">다운로드센터</a>
+      <a href="install.html">설치가이드</a>
+      <a href="contact.html">문의</a>
+      <a href="bug-report.html" class="active">버그접수</a>
+      <a href="privacy.html">개인정보처리방침</a>
+    </nav>
+  </div>
+</header>
+<main class="sub">
+  <section class="pagehead wrap">
+    <span>Support</span>
+    <h1>버그접수</h1>
+    <p>설치, 실행, 데이터 동기화, 종목스캔, 주문/매매, 계좌, 라이선스 오류를 접수합니다.</p>
+  </section>
+
+  <section class="section">
+    <div class="wrap bug-layout">
+      <aside class="bug-panel">
+        <h2>접수 전 확인</h2>
+        <p>정확한 확인을 위해 사용 버전, 설치 PC 환경, 오류가 발생한 메뉴, 재현 순서, 로그 또는 화면 캡처 정보를 함께 남겨 주세요.</p>
+        <div class="bug-help">
+          <span>사용 버전</span>
+          <span>설치 경로</span>
+          <span>오류 메뉴</span>
+          <span>재현 순서</span>
+          <span>로그 파일</span>
+          <span>화면 캡처</span>
+        </div>
+      </aside>
+
+      <section class="bug-panel">
+        <h2>버그 내용 작성</h2>
+        <form class="bug-form" data-contact>
+          <label>성함 또는 식별명
+            <input name="name" placeholder="접수자 식별명을 입력해 주세요." autocomplete="name" required>
+          </label>
+          <label>회신 연락처
+            <input name="contact" placeholder="이메일 또는 연락 가능한 정보를 입력해 주세요." autocomplete="email" required>
+          </label>
+          <label>오류 유형
+            <select name="bugType" required>
+              <option value="">오류 유형 선택</option>
+              <option>설치/삭제</option>
+              <option>실행/기동</option>
+              <option>라이선스</option>
+              <option>데이터 동기화</option>
+              <option>종목스캔</option>
+              <option>주문/매매</option>
+              <option>계좌/수익률</option>
+              <option>백테스터</option>
+              <option>기타</option>
+            </select>
+          </label>
+          <label>접수 내용
+            <textarea name="message" rows="9" placeholder="사용 버전, 오류 메뉴, 재현 순서, 기대 동작, 실제 결과를 적어 주세요." required></textarea>
+          </label>
+          <label class="consent">
+            <input type="checkbox" name="consent" required> 오류 접수와 응대를 위한 개인정보 수집 및 이용에 동의합니다.
+          </label>
+          <p class="form-status" data-contact-status aria-live="polite"></p>
+          <button class="btn primary" type="submit">버그 접수하기</button>
+        </form>
+      </section>
+    </div>
+  </section>
+</main>
+<footer>
+  <div class="wrap foot">
+    <div>
+      <b>Alpha Viper System [QUANT ENGINE]</b>
+      <p>종목 선별, 포트폴리오 구성, 자동매매 감시, 리스크 기준, 거래 기록을 하나의 운영 콘솔로 정리합니다.</p>
+    </div>
+    <div>
+      <span>PRODUCT</span>
+      <a href="features.html">핵심 기능</a>
+      <a href="dashboard.html">화면 구성</a>
+      <a href="workflow.html">운영 흐름</a>
+    </div>
+    <div>
+      <span>SUPPORT</span>
+      <a href="contact.html">문의</a>
+      <a href="bug-report.html">버그접수</a>
+      <a href="terms.html">이용약관</a>
+      <a href="privacy.html">개인정보처리방침</a>
+    </div>
+  </div>
+  <div class="wrap risknote">본 제품은 투자 정보 확인과 자동화된 투자 운영을 보조하는 소프트웨어입니다. 투자 판단과 책임은 사용자에게 있으며, 특정 수익 또는 투자 결과를 보장하지 않습니다.</div>
+</footer>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
+
+

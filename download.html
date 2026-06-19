@@ -1,16 +1,48 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="ko">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>도입안내 | Alpha Viper System</title>
-<meta name="description" content="Alpha Viper System 도입 안내">
-<meta property="og:title" content="도입안내 | Alpha Viper System">
-<meta property="og:description" content="Alpha Viper System 도입 안내">
+<title>다운로드센터 | Alpha Viper System</title>
+<meta name="description" content="Alpha Viper System 설치파일과 매뉴얼 다운로드센터">
+<meta property="og:title" content="다운로드센터 | Alpha Viper System">
+<meta property="og:description" content="Alpha Viper System 설치파일과 매뉴얼 다운로드센터">
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/images/favicon.svg">
 <link rel="stylesheet" href="assets/css/style.css">
 <link rel="stylesheet" href="assets/css/rev8.css">
+<style>
+.board-panel{border:1px solid rgba(86,236,255,.2);border-radius:22px;background:rgba(6,18,33,.72);box-shadow:0 18px 60px rgba(0,0,0,.22);overflow:hidden}
+.board-head{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;padding:26px 28px;border-bottom:1px solid rgba(86,236,255,.16)}
+.board-head h2{margin:0}
+.board-head p{margin:8px 0 0;color:var(--muted)}
+.board-meta{color:#77f6ff;font-weight:800;white-space:nowrap}
+.board-table{width:100%;border-collapse:collapse}
+.board-table th,.board-table td{padding:18px 20px;border-bottom:1px solid rgba(148,174,213,.12);vertical-align:middle}
+.board-table th{font-size:13px;color:#7ef8ff;text-align:center;background:rgba(8,25,45,.74)}
+.board-table td{color:#d9e7f5}
+.board-table tr:last-child td{border-bottom:0}
+.board-table .type{width:118px;text-align:center}
+.board-table .date{width:132px;text-align:center;color:#a8bdd6}
+.board-table .action{width:190px;text-align:center}
+.board-table .title strong{display:block;margin-bottom:5px;color:#fff}
+.board-table .title span{display:block;color:#8fa3bd;font-size:14px;line-height:1.55}
+.pill{display:inline-flex;align-items:center;justify-content:center;min-width:72px;padding:7px 11px;border:1px solid rgba(86,236,255,.28);border-radius:999px;color:#65f3ff;background:rgba(86,236,255,.08);font-weight:800;font-size:12px}
+.support-grid{display:grid;grid-template-columns:1fr;gap:18px}
+.support-card{border:1px solid rgba(86,236,255,.18);border-radius:18px;background:rgba(8,22,39,.68);padding:22px}
+.support-card h3{margin:0 0 10px}
+.support-card p{color:var(--muted)}
+.support-card .btn{justify-content:center}
+@media(max-width:860px){
+  .board-head{display:block}
+  .board-meta{display:block;margin-top:12px}
+  .board-table,.board-table tbody,.board-table tr,.board-table td{display:block;width:100%}
+  .board-table thead{display:none}
+  .board-table tr{padding:16px 0;border-bottom:1px solid rgba(148,174,213,.12)}
+  .board-table td{border-bottom:0;padding:8px 18px}
+  .board-table .type,.board-table .date,.board-table .action{text-align:left;width:auto}
+}
+</style>
 </head>
 <body class="subpage">
 <div class="noise"></div>
@@ -21,35 +53,89 @@
       <span><b>Alpha Viper</b><small>QUANT ENGINE · V1.0</small></span>
     </a>
     <button class="hamb" type="button" aria-label="메뉴 열기" data-menu>☰</button>
-    <nav data-nav><a href="index.html" class="">홈</a><a href="product.html" class="">제품소개</a><a href="features.html" class="">핵심기능</a><a href="workflow.html" class="">운영흐름</a><a href="dashboard.html" class="">화면구성</a><a href="security.html" class="">보안/리스크</a><a href="download.html" class="active">도입안내</a><a href="install.html" class="">설치가이드</a><a href="changelog.html" class="">업데이트</a><a href="faq.html" class="">FAQ</a><a href="contact.html" class="">문의</a></nav>
+    <nav data-nav>
+      <a href="index.html">홈</a>
+      <a href="product.html">제품소개</a>
+      <a href="features.html">핵심기능</a>
+      <a href="workflow.html">운영흐름</a>
+      <a href="dashboard.html">화면구성</a>
+      <a href="security.html">보안/리스크</a>
+      <a href="download.html" class="active">다운로드센터</a>
+      <a href="install.html">설치가이드</a>
+      <a href="contact.html">문의</a>
+      <a href="bug-report.html">버그접수</a>
+      <a href="privacy.html">개인정보처리방침</a>
+    </nav>
   </div>
 </header>
 <main class="sub">
-<section class="pagehead wrap"><span>Adoption</span><h1>제품 검토부터 설치 지원까지 단계적으로 진행합니다.</h1><p>도입 조건, 사용 환경, 필요한 지원 범위를 확인한 뒤 안내합니다.</p></section>
-<section class="section"><div class="wrap matrix"><article><i>01</i><h3>도입 문의</h3><p>문의 양식으로 사용 목적과 환경을 전달합니다.</p></article><article><i>02</i><h3>환경 확인</h3><p>운영 PC, 브라우저, 네트워크, 증권사 API 사용 조건을 확인합니다.</p></article><article><i>03</i><h3>설치 안내</h3><p>고객 환경에 맞춘 설치 절차와 점검 항목을 안내합니다.</p></article><article><i>04</i><h3>모의 검증</h3><p>모의투자 또는 가상 운용으로 기능과 로그를 먼저 확인합니다.</p></article><article><i>05</i><h3>운영 전환</h3><p>계좌/API 설정, 리스크 기준, 알림과 백업을 점검합니다.</p></article><article><i>06</i><h3>운영 지원</h3><p>장애 대응, 설정 점검, 업데이트 안내를 지원합니다.</p></article></div></section>
-<section class="section"><div class="wrap note"><h2>제품 도입 자료 요청</h2><p>도입 목적과 사용 환경을 남기면 필요한 자료와 검토 절차를 안내합니다.</p><a class="btn primary" href="contact.html">문의 양식 작성</a></div></section>
+  <section class="pagehead wrap">
+    <span>Download Center</span>
+    <h1>다운로드센터</h1>
+    <p>AVS 설치파일과 매뉴얼을 한곳에서 확인합니다.</p>
+  </section>
+
+  <section class="section">
+    <div class="wrap board-panel">
+      <div class="board-head">
+        <div>
+          <h2>최신자료</h2>
+          <p>최신 설치파일과 문서를 다운로드할 수 있습니다.</p>
+        </div>
+        <span class="board-meta">Latest · 1.9.83</span>
+      </div>
+      <table class="board-table">
+        <thead>
+          <tr>
+            <th>구분</th>
+            <th>자료명</th>
+            <th>등록일</th>
+            <th>다운로드</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="type"><span class="pill">설치파일</span></td>
+            <td class="title">
+              <strong>AVS 1.9.83 설치 패키지</strong>
+              <span>Alpha Viper System 최신 배포본입니다.</span>
+            </td>
+            <td class="date">2026-06-20</td>
+            <td class="action"><a class="btn primary" href="https://github.com/bluebus78-coder/AVS/releases/download/v1.9.83/AVS_1.9.83.zip" download>다운로드</a></td>
+          </tr>
+          <tr>
+            <td class="type"><span class="pill">매뉴얼</span></td>
+            <td class="title">
+              <strong>설치/운영 가이드</strong>
+              <span>설치, 실행, 라이선스, 운영 준비 절차를 확인할 수 있습니다.</span>
+            </td>
+            <td class="date">2026-06-20</td>
+            <td class="action"><a class="btn primary" href="downloads/manuals/AVS_Operation_Guide.pdf" download>다운로드</a></td>
+          </tr>
+          <tr>
+            <td class="type"><span class="pill">매뉴얼</span></td>
+            <td class="title">
+              <strong>사용자 매뉴얼</strong>
+              <span>대시보드, 종목추천, 포트폴리오, 주문계획, 설정 메뉴 사용법을 확인할 수 있습니다.</span>
+            </td>
+            <td class="date">2026-06-20</td>
+            <td class="action"><a class="btn primary" href="downloads/manuals/AVS_Manual.pdf" download>다운로드</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
 </main>
 <footer>
   <div class="wrap foot">
-    <div>
-      <b>Alpha Viper System [QUANT ENGINE]</b>
-      <p>종목 선별, 포트폴리오 구성, 자동매매 감시, 리스크 기준, 거래 기록을 하나의 운영 콘솔로 정리합니다.</p>
-    </div>
-    <div>
-      <span>PRODUCT</span>
-      <a href="features.html">핵심 기능</a>
-      <a href="dashboard.html">화면 구성</a>
-      <a href="workflow.html">운영 흐름</a>
-    </div>
-    <div>
-      <span>SUPPORT</span>
-      <a href="contact.html">도입 문의</a>
-      <a href="terms.html">이용약관</a>
-      <a href="privacy.html">개인정보처리방침</a>
-    </div>
+    <b>Alpha Viper System</b>
+    <span>© 2026 Alpha Viper Trading. All rights reserved.</span>
   </div>
-  <div class="wrap risknote">본 제품은 투자 정보 확인과 자동화된 투자 운영을 보조하는 소프트웨어입니다. 투자 판단과 책임은 사용자에게 있으며, 특정 수익률 또는 투자 결과를 보장하지 않습니다. 투자에는 원금 손실 위험이 있습니다.</div>
 </footer>
 <script src="assets/js/main.js"></script>
 </body>
 </html>
+
+
+
