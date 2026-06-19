@@ -25,7 +25,7 @@ function escapeHtml(value) {
 export default async function handler(req, res) {
   if (req.method !== "POST") {
     res.setHeader("Allow", "POST");
-    return sendJson(res, 405, { ok: false, message: "허용되지 않은 요청입니다." });
+    return sendJson(res, 405, { ok: false, message: "허용되지 않는 요청입니다." });
   }
 
   try {
@@ -45,7 +45,7 @@ export default async function handler(req, res) {
     if (message.length > MAX_MESSAGE_LENGTH) {
       return sendJson(res, 400, {
         ok: false,
-        message: "문의 내용은 4,000자 이내로 입력해 주세요.",
+        message: "접수 내용은 4,000자 이내로 입력해 주세요.",
       });
     }
 
@@ -55,33 +55,36 @@ export default async function handler(req, res) {
       return sendJson(res, 503, {
         ok: false,
         code: "MAIL_ENV_MISSING",
-        message: "메일 발송 환경이 설정되지 않았습니다. 배포 환경변수를 확인해 주세요.",
+        message: "메일 발송 환경이 설정되지 않았습니다.",
       });
     }
 
+    const isBugReport = message.startsWith("[오류 유형]");
+    const mailTitle = isBugReport ? "Alpha Viper System 버그 접수" : "Alpha Viper System 제품 문의";
+
     const emailBody = [
-      "Alpha Viper System 제품 문의",
+      mailTitle,
       "",
       `이름: ${name}`,
-      `회신 연락처: ${contact}`,
+      `연락처: ${contact}`,
       "",
-      "문의 내용:",
+      "접수 내용:",
       message,
     ].join("\n");
 
     const emailHtml = `
       <div style="font-family:Arial,'Noto Sans KR',sans-serif;line-height:1.65;color:#111827">
-        <h2 style="margin:0 0 16px">Alpha Viper System 제품 문의</h2>
+        <h2 style="margin:0 0 16px">${mailTitle}</h2>
         <p><strong>이름</strong><br>${escapeHtml(name)}</p>
-        <p><strong>회신 연락처</strong><br>${escapeHtml(contact)}</p>
-        <p><strong>문의 내용</strong><br>${escapeHtml(message).replace(/\n/g, "<br>")}</p>
+        <p><strong>연락처</strong><br>${escapeHtml(contact)}</p>
+        <p><strong>접수 내용</strong><br>${escapeHtml(message).replace(/\n/g, "<br>")}</p>
       </div>
     `;
 
     const mailPayload = {
       from,
       to,
-      subject: "[Alpha Viper System] 제품 문의",
+      subject: isBugReport ? "[Alpha Viper System] 버그 접수" : "[Alpha Viper System] 제품 문의",
       text: emailBody,
       html: emailHtml,
     };
@@ -109,11 +112,11 @@ export default async function handler(req, res) {
       });
     }
 
-    return sendJson(res, 200, { ok: true, message: "문의가 정상 접수되었습니다." });
+    return sendJson(res, 200, { ok: true, message: "정상 접수되었습니다." });
   } catch (error) {
     return sendJson(res, 500, {
       ok: false,
-      message: "문의 접수 중 오류가 발생했습니다.",
+      message: "접수 처리 중 오류가 발생했습니다.",
       detail: error.message,
     });
   }
