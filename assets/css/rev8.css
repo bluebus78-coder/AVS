@@ -21,3 +21,150 @@
 .subpage .pagehead{padding-top:82px}
 .release-card.current{outline:1px solid rgba(112,239,230,.12)}
 @media(max-width:760px){.contact-points{grid-template-columns:1fr}.avs-hero .terminal img{aspect-ratio:auto}.dashgallery figure.wide img,.dashgallery figure img{height:auto}}
+
+/* REV9 - Urban premium visual system */
+:root{
+  --bg:#05070d;
+  --bg2:#080d16;
+  --panel:rgba(12,18,28,.82);
+  --panel2:rgba(16,24,36,.9);
+  --line:rgba(128,158,190,.18);
+  --line2:rgba(86,236,255,.34);
+  --cyan:#4df0e7;
+  --blue:#7aa7ff;
+  --green:#48e991;
+  --text:#f4f7fb;
+  --muted:#96a6b8;
+  --soft:#d8e2ee;
+  --shadow:0 28px 88px rgba(0,0,0,.46);
+  --amber:#ffb84d;
+  --violet:#a98cff;
+}
+body{
+  letter-spacing:0;
+  background:
+    linear-gradient(180deg,rgba(255,255,255,.025),transparent 18%),
+    linear-gradient(135deg,#05070d 0%,#08101b 44%,#05070d 100%);
+}
+body:before{
+  opacity:.2;
+  background-image:
+    linear-gradient(rgba(124,151,180,.055) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(124,151,180,.05) 1px,transparent 1px);
+  background-size:88px 88px;
+  mask-image:linear-gradient(180deg,#000 0%,rgba(0,0,0,.78) 46%,transparent 90%);
+}
+h1,h2,h3,.brand b,.brand small,.eyebrow,.release-kicker,.pagehead span,.title span,.split-title span,.cta span{
+  letter-spacing:0;
+}
+.top{
+  background:rgba(5,8,14,.84);
+  border-bottom:1px solid rgba(148,174,213,.12);
+  box-shadow:0 14px 44px rgba(0,0,0,.28);
+}
+.brand img{
+  border-radius:8px;
+  box-shadow:0 0 0 1px rgba(86,236,255,.2),0 18px 34px rgba(0,0,0,.24);
+}
+nav a{
+  border-radius:8px;
+  color:#b3c1d2;
+}
+nav a:hover,nav a.active{
+  color:#f8fbff;
+  background:linear-gradient(180deg,rgba(86,236,255,.13),rgba(86,236,255,.055));
+  border-color:rgba(86,236,255,.22);
+}
+.eyebrow,.tags span,.pill,.version-pill{
+  border-radius:8px;
+  background:rgba(86,236,255,.07);
+}
+.eyebrow i{
+  box-shadow:none;
+}
+h1 em{
+  color:#fff;
+  text-shadow:0 0 34px rgba(77,240,231,.34);
+}
+.btn{
+  border-radius:8px;
+}
+.btn.primary{
+  background:linear-gradient(110deg,#45f4e6 0%,#7aa7ff 100%);
+  box-shadow:0 18px 45px rgba(77,240,231,.18);
+}
+.metrics div,.panel,.cards article,.copy,.note,.contactbox,.legalbox,.tablebox,.matrix article,.timeline article,.dashgallery figure,.board-panel,.support-card{
+  border-radius:14px;
+  background:linear-gradient(180deg,rgba(18,27,40,.86),rgba(8,13,22,.9));
+  border-color:rgba(148,174,213,.16);
+  box-shadow:0 22px 58px rgba(0,0,0,.28);
+}
+.metrics div,.cards article,.matrix article,.timeline article{
+  position:relative;
+  overflow:hidden;
+}
+.metrics div:before,.cards article:before,.matrix article:before,.timeline article:before{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  top:0;
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(86,236,255,.45),transparent);
+}
+.terminal,.release-hero-card,.release-card,.cta{
+  border-radius:16px;
+  background:linear-gradient(145deg,rgba(18,28,42,.92),rgba(7,11,20,.94));
+  border-color:rgba(148,174,213,.17);
+  box-shadow:0 32px 88px rgba(0,0,0,.42);
+}
+.terminal img,.mainshot,.subshot,.gallery3 img,.dashgallery img{
+  border-radius:10px;
+}
+.halo{
+  right:-24px;
+  top:-18px;
+  width:360px;
+  height:260px;
+  border-radius:0;
+  opacity:.42;
+  background:
+    linear-gradient(135deg,transparent 0 46%,rgba(86,236,255,.22) 47% 48%,transparent 49%),
+    linear-gradient(25deg,transparent 0 62%,rgba(122,167,255,.16) 63% 64%,transparent 65%);
+}
+.pod{
+  border-radius:12px;
+  background:rgba(8,13,22,.82);
+}
+.problem,.showcase{
+  background:linear-gradient(180deg,rgba(9,14,22,.62),rgba(7,12,20,.76));
+  border-color:rgba(148,174,213,.1);
+}
+.map div,.checks div,.faq details,.release-status .status-item,.release-note{
+  border-radius:12px;
+  background:rgba(12,19,30,.76);
+  border-color:rgba(148,174,213,.15);
+}
+.map b,.timeline time{
+  border-radius:10px;
+}
+.contactbox input,.contactbox textarea{
+  border-radius:8px;
+  background:#080f1b;
+}
+.pagehead h1,.hero-copy h1{
+  text-wrap:balance;
+}
+.board-head{
+  background:linear-gradient(90deg,rgba(86,236,255,.08),transparent);
+}
+.board-table th{
+  background:rgba(8,14,24,.88);
+}
+.risknote{
+  color:#8d9caf;
+}
+footer{
+  background:rgba(5,8,14,.88);
+  border-top-color:rgba(148,174,213,.12);
+}
