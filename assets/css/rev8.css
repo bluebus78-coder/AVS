@@ -13,6 +13,8 @@
 .form-status[data-state="error"]{color:#ff7b7b}
 .dashgallery figure.wide img{height:auto}
 .dashgallery figure img{height:auto;object-fit:contain;object-position:center;background:#060d19}
+.dashgallery figure{display:flex;flex-direction:column;height:100%}
+.dashgallery figcaption{margin-top:auto}
 .dashgallery.feature-full{grid-template-columns:1fr}
 .dashgallery.feature-full figure img{width:100%;height:auto;max-height:none;object-fit:contain;object-position:center}
 .dashgallery:not(.feature-full) figure:not(.wide) img{min-height:0}

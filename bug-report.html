@@ -19,7 +19,10 @@
 .bug-form{display:grid;gap:16px}
 .bug-form label{font-weight:800;color:#dce9f7}
 .bug-form input,.bug-form select,.bug-form textarea{width:100%;margin-top:8px;background:#061426;border:1px solid rgba(112,239,230,.16);border-radius:15px;color:#fff;padding:14px 16px;font-family:inherit}
+.bug-form input[type="file"]{padding:12px;background:rgba(255,255,255,.025)}
+.bug-form input[type="file"]::file-selector-button{margin-right:14px;border:1px solid rgba(112,239,230,.35);border-radius:999px;background:rgba(80,229,222,.12);color:#9ffcf5;font-weight:800;padding:9px 13px;cursor:pointer}
 .bug-form textarea{resize:vertical}
+.file-help{margin:7px 0 0;color:var(--muted);font-size:13px;line-height:1.6}
 .bug-help{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:18px}
 .bug-help span{border:1px solid rgba(112,239,230,.14);border-radius:14px;background:rgba(255,255,255,.032);padding:12px 13px;color:#c9d8e7;font-size:14px}
 .form-status{min-height:22px;margin:0;color:var(--muted)}
@@ -100,6 +103,10 @@
           </label>
           <label>접수 내용
             <textarea name="message" rows="9" placeholder="사용 버전, 오류 메뉴, 재현 순서, 기대 동작, 실제 결과를 적어 주세요." required></textarea>
+          </label>
+          <label>로그/화면 캡처 첨부
+            <input name="attachments" type="file" multiple accept=".zip,.log,.txt,.json,.csv,.png,.jpg,.jpeg,.webp">
+            <span class="file-help">로그 ZIP, 작업 큐 JSON, 화면 캡처 등을 첨부할 수 있습니다. 최대 3개, 전체 3MB 이하.</span>
           </label>
           <label class="consent">
             <input type="checkbox" name="consent" required> 오류 접수와 응대를 위한 개인정보 수집 및 이용에 동의합니다.

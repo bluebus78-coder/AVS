@@ -1,5 +1,18 @@
 const MAX_MESSAGE_LENGTH = 4000;
+const MAX_ATTACHMENT_FILES = 3;
+const MAX_ATTACHMENT_BYTES = 3 * 1024 * 1024;
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const ALLOWED_ATTACHMENT_EXTENSIONS = new Set([
+  "zip",
+  "log",
+  "txt",
+  "json",
+  "csv",
+  "png",
+  "jpg",
+  "jpeg",
+  "webp",
+]);
 
 function sendJson(res, statusCode, body) {
   return res.status(statusCode).json(body);
@@ -20,6 +33,61 @@ function escapeHtml(value) {
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#039;");
+}
+
+function cleanFilename(value) {
+  return String(value || "attachment")
+    .replace(/[\\/]/g, "_")
+    .replace(/[^\w .()\-[\]\u3131-\u318e\uac00-\ud7a3]/g, "_")
+    .slice(0, 120) || "attachment";
+}
+
+function getFileExtension(filename) {
+  const parts = String(filename || "").toLowerCase().split(".");
+  return parts.length > 1 ? parts.pop() : "";
+}
+
+function normalizeAttachments(value) {
+  const input = Array.isArray(value) ? value : [];
+
+  if (input.length > MAX_ATTACHMENT_FILES) {
+    return { error: `첨부파일은 최대 ${MAX_ATTACHMENT_FILES}개까지 가능합니다.` };
+  }
+
+  let totalSize = 0;
+  const attachments = [];
+  const attachmentLines = [];
+
+  for (const item of input) {
+    const filename = cleanFilename(item.filename);
+    const extension = getFileExtension(filename);
+
+    if (!ALLOWED_ATTACHMENT_EXTENSIONS.has(extension)) {
+      return { error: "첨부 가능한 파일은 ZIP, LOG, TXT, JSON, CSV, PNG, JPG, WEBP입니다." };
+    }
+
+    const content = String(item.content || "");
+    if (!content) {
+      return { error: "첨부파일 내용이 비어 있습니다." };
+    }
+
+    let bytes;
+    try {
+      bytes = Buffer.from(content, "base64");
+    } catch {
+      return { error: "첨부파일 인코딩을 확인해 주세요." };
+    }
+
+    totalSize += bytes.length;
+    if (totalSize > MAX_ATTACHMENT_BYTES) {
+      return { error: "첨부파일 전체 용량은 3MB 이하로 등록해 주세요." };
+    }
+
+    attachments.push({ filename, content });
+    attachmentLines.push(`- ${filename} (${bytes.length.toLocaleString("ko-KR")} bytes)`);
+  }
+
+  return { attachments, attachmentLines };
 }
 
 export default async function handler(req, res) {
@@ -49,18 +117,29 @@ export default async function handler(req, res) {
       });
     }
 
+    const normalized = normalizeAttachments(body.attachments);
+    if (normalized.error) {
+      return sendJson(res, 400, { ok: false, message: normalized.error });
+    }
+
     const { to, from, resendKey } = getRequiredEnv();
 
     if (!to || !from || !resendKey) {
       return sendJson(res, 503, {
         ok: false,
         code: "MAIL_ENV_MISSING",
-        message: "메일 발송 환경이 설정되지 않았습니다.",
+        message: "메일 전송 환경이 설정되지 않았습니다.",
       });
     }
 
     const isBugReport = message.startsWith("[오류 유형]");
     const mailTitle = isBugReport ? "Alpha Viper System 버그 접수" : "Alpha Viper System 제품 문의";
+    const attachmentText = normalized.attachmentLines.length
+      ? ["", "첨부파일:", ...normalized.attachmentLines].join("\n")
+      : "";
+    const attachmentHtml = normalized.attachmentLines.length
+      ? `<p><strong>첨부파일</strong><br>${normalized.attachmentLines.map(escapeHtml).join("<br>")}</p>`
+      : "";
 
     const emailBody = [
       mailTitle,
@@ -70,6 +149,7 @@ export default async function handler(req, res) {
       "",
       "접수 내용:",
       message,
+      attachmentText,
     ].join("\n");
 
     const emailHtml = `
@@ -78,6 +158,7 @@ export default async function handler(req, res) {
         <p><strong>이름</strong><br>${escapeHtml(name)}</p>
         <p><strong>연락처</strong><br>${escapeHtml(contact)}</p>
         <p><strong>접수 내용</strong><br>${escapeHtml(message).replace(/\n/g, "<br>")}</p>
+        ${attachmentHtml}
       </div>
     `;
 
@@ -88,6 +169,10 @@ export default async function handler(req, res) {
       text: emailBody,
       html: emailHtml,
     };
+
+    if (normalized.attachments.length) {
+      mailPayload.attachments = normalized.attachments;
+    }
 
     if (EMAIL_PATTERN.test(contact)) {
       mailPayload.reply_to = contact;
@@ -107,7 +192,7 @@ export default async function handler(req, res) {
       return sendJson(res, 502, {
         ok: false,
         code: "MAIL_PROVIDER_ERROR",
-        message: "메일 발송 서비스 응답을 확인해야 합니다.",
+        message: "메일 전송 서비스 응답을 확인해야 합니다.",
         detail,
       });
     }

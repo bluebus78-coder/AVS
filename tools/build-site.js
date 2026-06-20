@@ -161,7 +161,7 @@ const pages = {
 <article><i>05</i><h3>알림 설정</h3><p>체결, 리스크, 시스템 오류, 리포트 알림 채널을 관리합니다.</p></article>
 <article><i>06</i><h3>다국어 시스템 설정</h3><p>테마, 언어, 로그 레벨 등 운영 환경을 명확하게 조정합니다.</p></article>
 </div></section>
-<section class="section showcase"><div class="wrap dashgallery feature-full"><figure><img src="assets/images/portfolio.png?v=features-full" alt="포트폴리오 구성"><figcaption>포트폴리오 구성</figcaption></figure><figure><img src="assets/images/engine-management.png?v=features-full" alt="AI 엔진관리"><figcaption>AI 엔진관리</figcaption></figure><figure><img src="assets/images/auto-monitor.png?v=features-full" alt="자동매매 모니터"><figcaption>자동매매 모니터</figcaption></figure><figure><img src="assets/images/notification-settings.png?v=features-full" alt="알림 설정"><figcaption>알림설정</figcaption></figure></div></section>`,
+<section class="section showcase"><div class="wrap dashgallery feature-full"><figure><img src="assets/images/engine-management.png?v=features-full" alt="AI 엔진관리"><figcaption>AI 엔진관리</figcaption></figure><figure><img src="assets/images/feature-portfolio-ai-decision.png?v=features-full" alt="포트폴리오 구성과 AI 판단사유"><figcaption>포트폴리오 구성</figcaption></figure><figure><img src="assets/images/feature-order-plan-detail.png?v=features-full" alt="주문계획 상세와 즉시주문"><figcaption>주문계획 상세</figcaption></figure><figure><img src="assets/images/auto-monitor.png?v=features-full" alt="자동매매 모니터"><figcaption>자동매매 모니터</figcaption></figure><figure><img src="assets/images/notification-settings.png?v=features-full" alt="알림 설정"><figcaption>알림설정</figcaption></figure><figure><img src="assets/images/feature-schedule-routine.png?v=features-full" alt="스케줄링과 오늘 운용 루틴"><figcaption>스케줄링</figcaption></figure></div></section>`,
   }),
 
   "workflow.html": layout({
@@ -181,13 +181,15 @@ const pages = {
     sub: true,
     body: `${pageHead("Dashboard", "실제 제품 화면으로 확인하는 운영 구조", "현재 제품의 주요 화면을 최신 캡처 기준으로 정리했습니다.")}
 <section class="section"><div class="wrap dashgallery">
-<figure class="wide"><img src="assets/images/dashboard-home.png?v=dashboard-367" alt="대시보드"><figcaption>대시보드 · 계좌/API/자동매매/시장상태 통합 확인</figcaption></figure>
+<figure class="wide"><img src="assets/images/screen-dashboard-updated.png?v=dashboard-20260620b" alt="대시보드"><figcaption>대시보드 · 운용흐름, 계좌 현황, 포트폴리오 상태 통합 확인</figcaption></figure>
+<figure><img src="assets/images/screen-portfolio-updated.png?v=dashboard-20260620" alt="포트폴리오 구성"><figcaption>포트폴리오 구성</figcaption></figure>
+<figure><img src="assets/images/screen-order-plan-updated.png?v=dashboard-20260620" alt="주문계획"><figcaption>주문계획</figcaption></figure>
 <figure><img src="assets/images/engine-management.png" alt="엔진 관리"><figcaption>엔진 관리</figcaption></figure>
-<figure><img src="assets/images/portfolio.png" alt="포트폴리오"><figcaption>포트폴리오 구성</figcaption></figure>
-<figure><img src="assets/images/order-plan.png" alt="주문계획"><figcaption>주문계획</figcaption></figure>
 <figure><img src="assets/images/auto-monitor.png" alt="자동매매 모니터"><figcaption>자동매매 모니터</figcaption></figure>
-<figure><img src="assets/images/account-settings.png?v=account-new" alt="계좌 설정"><figcaption>계좌/API 설정</figcaption></figure>
-<figure><img src="assets/images/backup-restore.png" alt="백업복구"><figcaption>백업/복구</figcaption></figure>
+<figure><img src="assets/images/screen-trade-performance-updated.png?v=dashboard-20260620" alt="거래로그와 성과통계"><figcaption>거래로그/성과통계</figcaption></figure>
+<figure><img src="assets/images/screen-schedule-updated.png?v=dashboard-20260620" alt="스케줄링"><figcaption>스케줄링</figcaption></figure>
+<figure><img src="assets/images/screen-backtester-updated.png?v=dashboard-20260620" alt="백테스터"><figcaption>백테스터</figcaption></figure>
+<figure><img src="assets/images/screen-multilingual-updated.png?v=dashboard-20260620" alt="다국어지원"><figcaption>다국어지원 · 영어/일본어</figcaption></figure>
 </div></section>`,
   }),
 
