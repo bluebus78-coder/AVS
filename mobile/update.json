@@ -1,19 +1,18 @@
 {
   "packageName": "com.avs.aaa",
-  "versionCode": 121,
-  "versionName": "6.9",
+  "versionCode": 122,
+  "versionName": "7.0",
   "minimumSupportedVersionCode": 103,
   "published": true,
   "mandatory": false,
   "channel": "direct",
-  "title": "AVS Mobile 6.9",
+  "title": "AVS Mobile 7.0",
   "notes": [
-    "주문계획 카드에서 목표비중, 엔진 ID, 계획 버전, 내부 보호근거 문구를 제거했습니다.",
-    "주문계획 카드에 종목명/코드, 매수·매도 단계, 수량, 매수가·익절가·손절가, 금액 중심으로 표시되도록 정리했습니다.",
-    "홈 자산 영역을 총 계좌자산, 주식평가금액, 예수금 기준으로 분리해 표기했습니다."
+    "KIS Open API POST 요청에서 본문 길이를 명시하도록 보완했습니다.",
+    "설치 직후 계좌 연결/주문 호출 시 KIS 게이트웨이 라우팅 오류가 발생할 수 있는 전송 방식을 정리했습니다."
   ],
-  "apkUrl": "https://www.alphavipertrading.com/downloads/mobile/AVS_Mobile_6.9.apk",
-  "sha256": "FFA3AE08C7E9DC9D340C53711AD8863DF82A687B5D27FDD12E040357E65B2682",
+  "apkUrl": "https://www.alphavipertrading.com/downloads/mobile/AVS_Mobile_7.0.apk",
+  "sha256": "1E2A6A9B19A33F61C63EB6EBC14ECBFFDC5CD06C6BF7DF69BF335F0FBEED9571",
   "playUrl": "https://play.google.com/store/apps/details?id=com.avs.aaa",
-  "publishedAt": "2026-08-24T23:06:10+09:00"
+  "publishedAt": "2026-08-24T23:41:15+09:00"
 }
