@@ -1,8 +1,10 @@
 AVS download files
 
 Current product download:
-- Version: 1.9.83
-- URL: https://github.com/bluebus78-coder/AVS/releases/download/v1.9.83/AVS_1.9.83.zip
+- Web/PC version: 4.0
+- Web/PC URL: https://github.com/bluebus78-coder/AVS/releases/download/v4.0/AVS_4.0.ZIP
+- Mobile version: 6.9
+- Mobile APK: downloads/mobile/AVS_Mobile_6.9.apk
 
 Manuals included in this site package:
 - Install/operation guide: downloads/manuals/AVS_Operation_Guide.pdf

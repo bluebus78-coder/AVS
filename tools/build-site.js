@@ -264,14 +264,19 @@ const pages = {
   }),
 };
 
-for (const [file, html] of Object.entries(pages)) {
-  fs.writeFileSync(path.join(root, file), html, "utf8");
+// V3.0 이후 페이지는 실제 운영 HTML을 직접 관리한다. 이 구형 생성기가
+// 운영 파일을 V1.0 템플릿으로 덮어쓰지 않도록 빌드 단계에서는 검증만 수행한다.
+const missingFiles = Object.keys(pages).filter((file) => !fs.existsSync(path.join(root, file)));
+if (missingFiles.length) {
+  throw new Error(`Missing static pages: ${missingFiles.join(", ")}`);
 }
 
-fs.writeFileSync(path.join(root, "sitemap.xml"), `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${Object.keys(pages).map((file) => `  <url><loc>/${file}</loc></url>`).join("\n")}
-</urlset>
-`, "utf8");
+const versionMismatches = Object.keys(pages).filter((file) => {
+  const html = fs.readFileSync(path.join(root, file), "utf8");
+  return !html.includes("QUANT ENGINE · V3.0");
+});
+if (versionMismatches.length) {
+  throw new Error(`Pages not updated to V3.0: ${versionMismatches.join(", ")}`);
+}
 
-console.log(`Generated ${Object.keys(pages).length} pages.`);
+console.log(`Validated ${Object.keys(pages).length} V3.0 pages.`);

@@ -1,0 +1,16 @@
+{
+  "packageName": "com.avs.aaa",
+  "versionCode": 121,
+  "versionName": "6.9",
+  "minimumSupportedVersionCode": 103,
+  "published": false,
+  "mandatory": false,
+  "channel": "play",
+  "title": "AVS Mobile 6.9",
+  "notes": [
+    "Google Play 공식 인앱 업데이트를 지원합니다.",
+    "직접 APK 설치 권한은 Google Play 배포본에 포함되지 않습니다."
+  ],
+  "playUrl": "https://play.google.com/store/apps/details?id=com.avs.aaa",
+  "publishedAt": ""
+}
