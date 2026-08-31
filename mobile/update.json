@@ -1,18 +1,19 @@
 {
   "packageName": "com.avs.aaa",
-  "versionCode": 122,
-  "versionName": "7.0",
+  "versionCode": 126,
+  "versionName": "7.4",
   "minimumSupportedVersionCode": 103,
   "published": true,
   "mandatory": false,
   "channel": "direct",
-  "title": "AVS Mobile 7.0",
+  "title": "AVS Mobile 7.4",
   "notes": [
-    "KIS Open API POST 요청에서 본문 길이를 명시하도록 보완했습니다.",
-    "설치 직후 계좌 연결/주문 호출 시 KIS 게이트웨이 라우팅 오류가 발생할 수 있는 전송 방식을 정리했습니다."
+    "주문계획 화면에서 보유종목 손절·익절 가격이 오래된 계획가로 남지 않도록 현재 보유수량, 현재가, 증권사 평단 기준으로 표시 직전에 재판정합니다.",
+    "자동매매 재평가 흐름에서도 조건대기 매도 계획의 기준가가 현재 손절·익절 정책과 일치하도록 보정했습니다.",
+    "패키징 스크립트가 AVS 번들 Android SDK/JDK를 우선 후보로 인식하도록 보강했습니다."
   ],
-  "apkUrl": "https://www.alphavipertrading.com/downloads/mobile/AVS_Mobile_7.0.apk",
-  "sha256": "1E2A6A9B19A33F61C63EB6EBC14ECBFFDC5CD06C6BF7DF69BF335F0FBEED9571",
+  "apkUrl": "https://www.alphavipertrading.com/downloads/mobile/AVS_Mobile_7.4.apk",
+  "sha256": "46FDC34E437CD12BA11B8068168B9905398B78FB127DD35E5F9953E30C671FA6",
   "playUrl": "https://play.google.com/store/apps/details?id=com.avs.aaa",
-  "publishedAt": "2026-08-24T23:41:15+09:00"
+  "publishedAt": "2026-09-01T00:11:05+09:00"
 }
