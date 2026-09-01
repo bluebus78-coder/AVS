@@ -1,19 +1,19 @@
 {
   "packageName": "com.avs.aaa",
-  "versionCode": 127,
-  "versionName": "7.5",
+  "versionCode": 128,
+  "versionName": "7.6",
   "minimumSupportedVersionCode": 103,
   "published": true,
   "mandatory": false,
   "channel": "direct",
-  "title": "AVS Mobile 7.5",
+  "title": "AVS Mobile 7.6",
   "notes": [
-    "보유종목 목록에 당일 고가/저가를 함께 표시하도록 보완했습니다.",
-    "보유종목 즉시주문 팝업에도 현재가, 당일 고가, 당일 저가, 평단가를 같은 기준으로 표시합니다.",
-    "KIS 실시간 시세와 증권사별 현재가 조회 응답에서 당일 고가/저가 필드를 수집해 잔고 표시값에 반영합니다."
+    "당일 고가/저가 표시 대상을 보유종목이 아닌 추천 후보/관심종목으로 정정했습니다.",
+    "보유종목 목록과 보유종목 주문 팝업은 평단가와 현재가 중심으로 원복했습니다.",
+    "추천 후보/관심종목 목록, 카드, 상세 화면에 당일 고가/저가를 표시합니다."
   ],
-  "apkUrl": "https://www.alphavipertrading.com/downloads/mobile/AVS_Mobile_7.5.apk",
-  "sha256": "AF6CD0E7F716B8C90301DE1A4F68F396F9CEDA61F45E54168F0F989A97F82D6A",
+  "apkUrl": "https://www.alphavipertrading.com/downloads/mobile/AVS_Mobile_7.6.apk",
+  "sha256": "30ACA4210F3AE85BAC3859B0EBCB7FF1281FBD80F6C40777158EFBE160D9B495",
   "playUrl": "https://play.google.com/store/apps/details?id=com.avs.aaa",
-  "publishedAt": "2026-09-01T13:32:53+09:00"
+  "publishedAt": "2026-09-01T14:29:05+09:00"
 }
