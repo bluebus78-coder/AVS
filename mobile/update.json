@@ -1,19 +1,19 @@
 {
   "packageName": "com.avs.aaa",
-  "versionCode": 126,
-  "versionName": "7.4",
+  "versionCode": 127,
+  "versionName": "7.5",
   "minimumSupportedVersionCode": 103,
   "published": true,
   "mandatory": false,
   "channel": "direct",
-  "title": "AVS Mobile 7.4",
+  "title": "AVS Mobile 7.5",
   "notes": [
-    "주문계획 화면에서 보유종목 손절·익절 가격이 오래된 계획가로 남지 않도록 현재 보유수량, 현재가, 증권사 평단 기준으로 표시 직전에 재판정합니다.",
-    "자동매매 재평가 흐름에서도 조건대기 매도 계획의 기준가가 현재 손절·익절 정책과 일치하도록 보정했습니다.",
-    "패키징 스크립트가 AVS 번들 Android SDK/JDK를 우선 후보로 인식하도록 보강했습니다."
+    "보유종목 목록에 당일 고가/저가를 함께 표시하도록 보완했습니다.",
+    "보유종목 즉시주문 팝업에도 현재가, 당일 고가, 당일 저가, 평단가를 같은 기준으로 표시합니다.",
+    "KIS 실시간 시세와 증권사별 현재가 조회 응답에서 당일 고가/저가 필드를 수집해 잔고 표시값에 반영합니다."
   ],
-  "apkUrl": "https://www.alphavipertrading.com/downloads/mobile/AVS_Mobile_7.4.apk",
-  "sha256": "46FDC34E437CD12BA11B8068168B9905398B78FB127DD35E5F9953E30C671FA6",
+  "apkUrl": "https://www.alphavipertrading.com/downloads/mobile/AVS_Mobile_7.5.apk",
+  "sha256": "AF6CD0E7F716B8C90301DE1A4F68F396F9CEDA61F45E54168F0F989A97F82D6A",
   "playUrl": "https://play.google.com/store/apps/details?id=com.avs.aaa",
-  "publishedAt": "2026-09-01T00:11:05+09:00"
+  "publishedAt": "2026-09-01T13:32:53+09:00"
 }

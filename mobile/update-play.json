@@ -1,12 +1,12 @@
 {
   "packageName": "com.avs.aaa",
-  "versionCode": 126,
-  "versionName": "7.4",
+  "versionCode": 127,
+  "versionName": "7.5",
   "minimumSupportedVersionCode": 103,
   "published": false,
   "mandatory": false,
   "channel": "play",
-  "title": "AVS Mobile 7.4",
+  "title": "AVS Mobile 7.5",
   "notes": [
     "Google Play 공식 인앱 업데이트를 지원합니다.",
     "직접 APK 설치 권한은 Google Play 배포본에 포함되지 않습니다."
