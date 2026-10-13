@@ -75,8 +75,9 @@ document.querySelectorAll("[data-contact]").forEach((form) => {
     event.preventDefault();
     const data = new FormData(form);
     const bugType = String(data.get("bugType") || "").trim();
+    const purpose = String(data.get("purpose") || "").trim();
     const rawMessage = String(data.get("message") || "").trim();
-    const message = bugType ? `[오류 유형] ${bugType}\n\n${rawMessage}` : rawMessage;
+    const message = bugType ? `[오류 유형] ${bugType}\n\n${rawMessage}` : purpose ? `[상담 분야] ${purpose}\n\n${rawMessage}` : rawMessage;
 
     if (status) {
       status.textContent = "접수 내용을 전송하고 있습니다.";

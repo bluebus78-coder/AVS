@@ -133,7 +133,7 @@ export default async function handler(req, res) {
     }
 
     const isBugReport = message.startsWith("[오류 유형]");
-    const mailTitle = isBugReport ? "Alpha Viper System 버그 접수" : "Alpha Viper System 제품 문의";
+    const mailTitle = isBugReport ? "DK블라썸 오류·기술지원 접수" : "DK블라썸 제작·교육·제품 상담";
     const attachmentText = normalized.attachmentLines.length
       ? ["", "첨부파일:", ...normalized.attachmentLines].join("\n")
       : "";
@@ -165,7 +165,7 @@ export default async function handler(req, res) {
     const mailPayload = {
       from,
       to,
-      subject: isBugReport ? "[Alpha Viper System] 버그 접수" : "[Alpha Viper System] 제품 문의",
+      subject: isBugReport ? "[DK블라썸] 오류·기술지원 접수" : "[DK블라썸] 제작·교육·제품 상담",
       text: emailBody,
       html: emailHtml,
     };

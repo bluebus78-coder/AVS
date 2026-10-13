@@ -1,12 +1,12 @@
 {
   "packageName": "com.avs.aaa",
-  "versionCode": 128,
-  "versionName": "7.6",
+  "versionCode": 159,
+  "versionName": "1.0.7",
   "minimumSupportedVersionCode": 103,
   "published": false,
   "mandatory": false,
   "channel": "play",
-  "title": "AVS Mobile 7.6",
+  "title": "AVS MOBILE PRO 1.0.7",
   "notes": [
     "Google Play 공식 인앱 업데이트를 지원합니다.",
     "직접 APK 설치 권한은 Google Play 배포본에 포함되지 않습니다."

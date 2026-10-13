@@ -1,19 +1,20 @@
 {
   "packageName": "com.avs.aaa",
-  "versionCode": 128,
-  "versionName": "7.6",
+  "versionCode": 232,
+  "versionName": "7.7",
   "minimumSupportedVersionCode": 103,
   "published": true,
   "mandatory": false,
   "channel": "direct",
-  "title": "AVS Mobile 7.6",
+  "title": "AVS MOBILE PRO 7.7",
   "notes": [
-    "당일 고가/저가 표시 대상을 보유종목이 아닌 추천 후보/관심종목으로 정정했습니다.",
-    "보유종목 목록과 보유종목 주문 팝업은 평단가와 현재가 중심으로 원복했습니다.",
-    "추천 후보/관심종목 목록, 카드, 상세 화면에 당일 고가/저가를 표시합니다."
+    "예약 운용에 거래 종료 추가: 자동매매 중지, 보유종목 유지, 기본 꺼짐. 종료 후 지연 예약 재시작 차단.",
+    "미분류 업종 후보 제한 수정 및 장중 최신자료 재분석·중복 준비 억제. 시총·진입 기준 유지.",
+    "일반 종목교체는 장중 재판단 연속 2회 확인. 손절·익절·수익보호·현금비중 복구는 제외.",
+    "기존 손절·익절 및 실현손익 기준 -1.5% 신규매수 제한 유지. 입출금 보정 손실 산식과 새 매크로 가중치는 미적용."
   ],
-  "apkUrl": "https://www.alphavipertrading.com/downloads/mobile/AVS_Mobile_7.6.apk",
-  "sha256": "30ACA4210F3AE85BAC3859B0EBCB7FF1281FBD80F6C40777158EFBE160D9B495",
+  "apkUrl": "https://www.alphavipertrading.com/downloads/mobile/AVS_Mobile_7.7.apk",
+  "sha256": "E6C5F4B2115F6D0DB070ED02B96F2030C2127B044A765E907AC8F386F8F101EA",
   "playUrl": "https://play.google.com/store/apps/details?id=com.avs.aaa",
-  "publishedAt": "2026-09-01T14:29:05+09:00"
+  "publishedAt": "2026-10-13T22:13:41+09:00"
 }

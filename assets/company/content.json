@@ -1,0 +1,304 @@
+{
+  "brand": {
+    "name_ko": "DK블라썸",
+    "name_en": "DKBLOSSOM",
+    "cover_title": "아이디어를 만들고,\n가능성을 넓히다.",
+    "cover_subtitle": "앱·웹·홈페이지 제작 | AI 활용 교육",
+    "company_intro": "DK블라썸은 Android 앱, 웹서비스와 홈페이지를 제작하고 AI 활용 교육을 제공합니다. 다양한 분야의 자체 서비스 개발 경험을 바탕으로 필요한 기능과 활용 방법을 함께 설계합니다.",
+    "website": "https://www.alphavipertrading.com"
+  },
+  "services": [
+    {
+      "title": "앱 제작",
+      "short": "아이디어를 손안의 서비스로",
+      "body": "필요한 기능과 사용 흐름을 정리하고 Android 앱의 화면·기능 구현을 진행합니다. 실제 앱 사례를 바탕으로 제작 범위를 상담합니다.",
+      "items": [
+        "요구사항·사용 흐름 정리",
+        "모바일 화면과 기능 구현",
+        "기존 앱 개선·유지보수 상담"
+      ]
+    },
+    {
+      "title": "웹·홈페이지 제작",
+      "short": "우리 사업이 보이는 첫 화면",
+      "body": "회사·서비스 소개와 문의 연결을 위한 홈페이지, 업무 목적에 맞는 웹 기능을 제작합니다. 페이지와 기능 범위를 먼저 합의합니다.",
+      "items": [
+        "회사·서비스 소개 홈페이지",
+        "반응형 화면·문의 기능",
+        "필요한 웹 기능과 연동 상담"
+      ]
+    },
+    {
+      "title": "AI 활용 교육",
+      "short": "직접 해보며 익히는 AI",
+      "body": "다양한 AI 도구와 프로그램을 목적에 맞게 사용하는 방법을 실습합니다. 학습 수준과 활용 목적에 맞춰 교육 범위를 상담합니다.",
+      "items": [
+        "AI 활용·프롬프트 실습",
+        "다양한 프로그램 사용법 교육",
+        "설치·오류 해결과 활용 상담"
+      ]
+    }
+  ],
+  "process": [
+    "목적과 필요한 기능 확인",
+    "범위·일정·견적 협의",
+    "제작 또는 실습 진행",
+    "결과 확인·후속 안내"
+  ],
+  "consultation": {
+    "title": "만들고 싶은 것, 배우고 싶은 것을 알려주세요.",
+    "body": "목적 · 필요한 기능 · 참고 자료 · 희망 일정 · 예산을 보내주시면 상담 범위를 정리해드립니다.",
+    "channels": [
+      {
+        "label": "회사 홈페이지",
+        "url": "https://www.alphavipertrading.com"
+      },
+      {
+        "label": "크몽 앱 제작",
+        "url": "https://kmong.com/gig/803919"
+      },
+      {
+        "label": "크몽 홈페이지 제작",
+        "url": "https://kmong.com/gig/817049"
+      }
+    ],
+    "notice": "작업 범위·비용·일정은 상담 후 합의합니다."
+  },
+  "apps": [
+    {
+      "package": "phoenix.ai.iot",
+      "official_name": "AI Home Control - 스마트홈 제어",
+      "display_name": "AI Home Control",
+      "category": "스마트홈",
+      "benefit": "조명과 난방, 취침 환경을 한곳에서 관리하세요.",
+      "features": [
+        "조명·난방·취침 씬 관리",
+        "Home Assistant 연결",
+        "기기 없이 모의 체험"
+      ],
+      "use_note": "실제 제어 범위는 연결한 기기와 플랫폼에 따라 달라집니다.",
+      "status": "Google Play 공개 등록정보 확인",
+      "status_scope": "한국어·대한민국 공개 페이지 HTTP 200 및 SoftwareApplication 구조화 정보 확인. 기기별 설치 가능 여부는 별도.",
+      "store_url": "https://play.google.com/store/apps/details?id=phoenix.ai.iot",
+      "icon_url": "https://play-lh.googleusercontent.com/weOL7VMHAWzBvy-BC0woRuUBDWNlJP6YErfd5o-ByTQjhf4pgmuW8kAXXHNj-QFTNERMjqj9LhJxo6dfJ30RWCc",
+      "source_urls": [
+        "https://play.google.com/store/apps/details?id=phoenix.ai.iot&hl=ko&gl=KR"
+      ],
+      "official_short_description": "조명·난방·취침 씬을 관리하고 Home Assistant를 연결하는 간편 스마트홈 앱"
+    },
+    {
+      "package": "avs.EnglishCard",
+      "official_name": "잉글리쉬카드 - 영어단어 학습",
+      "display_name": "잉글리쉬카드",
+      "category": "학습",
+      "benefit": "카드로 익히고, 발음으로 듣고, 즐겨찾기로 복습하세요.",
+      "features": [
+        "단계별 영어 단어 카드",
+        "발음 듣기와 속도 조절",
+        "단어 검색·즐겨찾기 복습"
+      ],
+      "use_note": "",
+      "status": "Google Play 공개 등록정보 확인",
+      "status_scope": "한국어·대한민국 공개 페이지 HTTP 200 및 SoftwareApplication 구조화 정보 확인. 기기별 설치 가능 여부는 별도.",
+      "store_url": "https://play.google.com/store/apps/details?id=avs.EnglishCard",
+      "icon_url": "https://play-lh.googleusercontent.com/-KF74sSg3fa6t1L-Cdnx326tqfeC1co-JWsb7mrr2-xB3Xsqzkvq2TwqmsTq1f2pLDG78N5PKVFGzSInPEGvs4I",
+      "source_urls": [
+        "https://play.google.com/store/apps/details?id=avs.EnglishCard&hl=ko&gl=KR"
+      ],
+      "official_short_description": "영어 단어를 카드로 반복 학습하고 검색·퀴즈로 복습하는 간편 영어 암기 앱"
+    },
+    {
+      "package": "dkblossom.sound.note",
+      "official_name": "소리노트 - 음성녹음 텍스트변환",
+      "display_name": "소리노트",
+      "category": "생산성",
+      "benefit": "녹음 파일을 읽을 수 있는 대화 기록으로 정리하세요.",
+      "features": [
+        "한국어 음성 텍스트 변환",
+        "화자별 구분·문장 수정",
+        "시간순·화자별 TXT 저장"
+      ],
+      "use_note": "기기 성능·녹음 상태에 따라 인식 결과와 처리 시간이 달라집니다.",
+      "status": "Google Play 공개 등록정보 확인",
+      "status_scope": "한국어·대한민국 공개 페이지 HTTP 200 및 SoftwareApplication 구조화 정보 확인. 기기별 설치 가능 여부는 별도.",
+      "store_url": "https://play.google.com/store/apps/details?id=dkblossom.sound.note",
+      "icon_url": "https://play-lh.googleusercontent.com/vUgMlGld5TgkX77VhrvSb2Nk0pTVJG1E3YAlYS7hCF-Wthpjr28kYz9ydWb9wru1v4EerzVcnTFsyCN5aPwwzA",
+      "source_urls": [
+        "https://play.google.com/store/apps/details?id=dkblossom.sound.note&hl=ko&gl=KR"
+      ],
+      "official_short_description": "녹음 파일을 화자별 텍스트로 변환하고 TXT로 저장"
+    },
+    {
+      "package": "com.dkblossom.publicfacilityai",
+      "official_name": "공공시설 AI 똑똑 - 예약·알림",
+      "display_name": "공공시설 AI 똑똑",
+      "category": "공공정보",
+      "benefit": "우리 지역의 배움과 체험, 놓치기 쉬운 접수 일정을 찾아보세요.",
+      "features": [
+        "지역·무료·접수 상태 검색",
+        "문장으로 입력하는 조건 검색",
+        "관심 저장·공고/접수 알림"
+      ],
+      "use_note": "정보와 신청 가능 여부는 운영기관의 공식 페이지에서 최종 확인하세요.",
+      "status": "Google Play 공개 등록정보 확인",
+      "status_scope": "한국어·대한민국 공개 페이지 HTTP 200 및 SoftwareApplication 구조화 정보 확인. 기기별 설치 가능 여부는 별도.",
+      "store_url": "https://play.google.com/store/apps/details?id=com.dkblossom.publicfacilityai",
+      "icon_url": "https://play-lh.googleusercontent.com/yCmqs5cCHSQcZ-3o1C_ecbfo77F4uDiCr0WFc2k0q12lMhR6qxnAD-C_M9580bYzem2TpIq9JRCG5s-Y9KPM",
+      "source_urls": [
+        "https://play.google.com/store/apps/details?id=com.dkblossom.publicfacilityai&hl=ko&gl=KR"
+      ],
+      "official_short_description": "전국 공공시설·강좌·체험·공연을 AI로 찾고 접수 일정과 새 공고를 알림받으세요"
+    },
+    {
+      "package": "mobile.location.tracker",
+      "official_name": "가족 위치공유·SOS - Mobile Tracker",
+      "display_name": "가족 위치공유·SOS",
+      "category": "가족 연결",
+      "benefit": "서로 동의한 가족과 위치와 안부를 함께 나누세요.",
+      "features": [
+        "동의 기반 위치 공유",
+        "SOS·메시지 전달",
+        "QR 연결·영상통화"
+      ],
+      "use_note": "SOS는 긴급 구조기관의 공식 신고 서비스를 대신하지 않습니다.",
+      "status": "Google Play 공개 등록정보 확인",
+      "status_scope": "한국어·대한민국 공개 페이지 HTTP 200 및 SoftwareApplication 구조화 정보 확인. 기기별 설치 가능 여부는 별도.",
+      "store_url": "https://play.google.com/store/apps/details?id=mobile.location.tracker",
+      "icon_url": "https://play-lh.googleusercontent.com/xTQW10EGGr5pEvN9Nd9D3igJ5dsqxcotQTnGdscdK5WkLZm33J7-xE3IG_os7DGy3Ust1Q93ayReY2iAWZxoqQ",
+      "source_urls": [
+        "https://play.google.com/store/apps/details?id=mobile.location.tracker&hl=ko&gl=KR"
+      ],
+      "official_short_description": "가족·기기 위치를 동의 기반으로 공유하고 SOS·메시지·영상통화까지 이용하세요"
+    },
+    {
+      "package": "com.alphavipertrading.masilpick",
+      "official_name": "우리동네마켓 - 동네 중고거래",
+      "display_name": "우리동네마켓",
+      "category": "지역 거래",
+      "benefit": "가까운 이웃과 물건을 나누고, 채팅으로 거래를 조율하세요.",
+      "features": [
+        "지역별 물품 등록·탐색",
+        "사진 기반 AI 판매글 초안",
+        "채팅·찜·거래 후기"
+      ],
+      "use_note": "사용자 간 거래 연결 서비스이며 앱 내 결제·송금·대금 보관은 제공하지 않습니다.",
+      "status": "Google Play 공개 등록정보 확인",
+      "status_scope": "한국어·대한민국 공개 페이지 HTTP 200 및 SoftwareApplication 구조화 정보 확인. 기기별 설치 가능 여부는 별도.",
+      "store_url": "https://play.google.com/store/apps/details?id=com.alphavipertrading.masilpick",
+      "icon_url": "https://play-lh.googleusercontent.com/vuEHspa2QA-rYgwjtqrtghKcwMjUIPiBFq3YgCp-LWMkefky4q5PzcI9paoetEoKFla2Rd76d4hwe2E5jCEusw",
+      "source_urls": [
+        "https://play.google.com/store/apps/details?id=com.alphavipertrading.masilpick&hl=ko&gl=KR"
+      ],
+      "official_short_description": "우리 동네에서 중고 물품을 등록하고 채팅으로 편하게 직거래하는 지역 중고마켓"
+    },
+    {
+      "package": "phoenix.bunin.tester",
+      "official_name": "잔상 체크 - 화면 테스트",
+      "display_name": "잔상 체크",
+      "category": "화면 점검",
+      "benefit": "중고폰을 살펴볼 때, 화면의 얼룩과 색 차이를 직접 확인하세요.",
+      "features": [
+        "9가지 전체 화면 검사",
+        "직접·자동 검사",
+        "기기에 관찰 기록 저장"
+      ],
+      "use_note": "육안 검사 도구이며 잔상을 자동 진단하거나 복구하지 않습니다.",
+      "status": "Google Play 공개 등록정보 확인",
+      "status_scope": "한국어·대한민국 공개 페이지 HTTP 200 및 SoftwareApplication 구조화 정보 확인. 기기별 설치 가능 여부는 별도.",
+      "store_url": "https://play.google.com/store/apps/details?id=phoenix.bunin.tester",
+      "icon_url": "https://play-lh.googleusercontent.com/YQM-ND08DwH2Cd8whaO37cVT70HUjDhVP5wEtjnai3oj6r4AB5lV16CMZhGlrx7Jcy776lzIrQ_-Z7pgYVyDIV0",
+      "source_urls": [
+        "https://play.google.com/store/apps/details?id=phoenix.bunin.tester&hl=ko&gl=KR"
+      ],
+      "official_short_description": "색상·회색 전체 화면으로 잔상과 색상 차이를 직접 확인하세요"
+    },
+    {
+      "package": "lotto.bands.release",
+      "official_name": "AI 로또 번호 생성기 - 6/45 번호 조합",
+      "display_name": "AI 로또 번호 생성기",
+      "category": "번호 조합",
+      "benefit": "6/45 번호 조합을 간편하게 만들고 통계를 살펴보세요.",
+      "features": [
+        "6/45 번호 자동 생성",
+        "다양한 조합·통계 확인",
+        "생성 번호 복사"
+      ],
+      "use_note": "번호와 통계는 참고용이며 당첨 가능성이나 당첨 결과를 보장하지 않습니다.",
+      "status": "Google Play 공개 등록정보 확인",
+      "status_scope": "한국어·대한민국 공개 페이지 HTTP 200 및 SoftwareApplication 구조화 정보 확인. 기기별 설치 가능 여부는 별도.",
+      "store_url": "https://play.google.com/store/apps/details?id=lotto.bands.release",
+      "icon_url": "https://play-lh.googleusercontent.com/1h9DTiDh83wn9KiuGJq_iBhJA9hM-61JTS4RKXYysjQJjI2F14AxfhQWP4a4n8DKblw-IxYE3IE24fFHuu98uw",
+      "source_urls": [
+        "https://play.google.com/store/apps/details?id=lotto.bands.release&hl=ko&gl=KR"
+      ],
+      "official_short_description": "6/45 로또 번호를 간편하게 생성하고 조합·통계를 확인하는 번호 생성 앱"
+    },
+    {
+      "package": "com.avs.aaa",
+      "official_name": "AVS MOBILE PRO - 주식 자동매매",
+      "display_name": "AVS MOBILE PRO",
+      "category": "투자 관리",
+      "benefit": "분석부터 포트폴리오, 주문 계획까지 운용 흐름을 확인하세요.",
+      "features": [
+        "AI 종목 분석·점수 확인",
+        "포트폴리오·주문 계획 관리",
+        "설정 조건 기반 자동매매"
+      ],
+      "use_note": "분석은 참고 정보입니다. 투자에는 원금 손실 가능성이 있으며 수익을 보장하지 않습니다.",
+      "status": "Google Play 공개 등록정보 확인",
+      "status_scope": "한국어·대한민국 공개 페이지 HTTP 200 및 SoftwareApplication 구조화 정보 확인. 기기별 설치 가능 여부는 별도.",
+      "store_url": "https://play.google.com/store/apps/details?id=com.avs.aaa",
+      "icon_url": "https://play-lh.googleusercontent.com/fiBqfLZbIpMZ6FDY0-sNwj6ig517h0xjv0LYNGOip8B8dKi_bzQOHlUge7CP-HU3fSSJZzzE4lSOzgrnpP9XqQ",
+      "source_urls": [
+        "https://play.google.com/store/apps/details?id=com.avs.aaa&hl=ko&gl=KR"
+      ],
+      "official_short_description": "AI 종목 분석, 포트폴리오, 주문 계획과 자동매매를 한곳에서 관리하세요."
+    },
+    {
+      "package": "dkblossom.matgo",
+      "official_name": "불꽃맞고 - 타짜",
+      "display_name": "불꽃맞고 - 타짜",
+      "category": "게임",
+      "benefit": "AI와 한 판, 내 취향에 맞춘 오프라인 맞고를 즐기세요.",
+      "features": [
+        "한 번의 터치로 패 내기",
+        "AI 난이도·판 설정",
+        "손패 확대·대전 기록"
+      ],
+      "use_note": "가상 게임머니를 사용하며 현금 입출금·환전 기능은 없습니다.",
+      "status": "Google Play 공개 등록정보 확인",
+      "status_scope": "한국어·대한민국 공개 페이지 HTTP 200 및 SoftwareApplication 구조화 정보 확인. 기기별 설치 가능 여부는 별도.",
+      "store_url": "https://play.google.com/store/apps/details?id=dkblossom.matgo",
+      "icon_url": "https://play-lh.googleusercontent.com/8vrK1ExWqdkem2Nrakg-2DM-vLlW8lpV1uMZsZiZyp9Ss2ngWzrYvW3yzg3Ud-xaS6zFkb5SUykD7o-4aQrz4Q",
+      "source_urls": [
+        "https://play.google.com/store/apps/details?id=dkblossom.matgo&hl=ko&gl=KR"
+      ],
+      "official_short_description": "패를 탭하면 바로 내는 손맛! 난이도와 점당 게임머니를 내 취향대로 설정하고, AI와 즐기는 오프라인 맞고"
+    }
+  ],
+  "verification": {
+    "checked_date_kst": "2026-10-13",
+    "apps_public_listing_count": 10,
+    "method": "공식 Google Play 공개 페이지 직접 조회: HTTP 200, 앱명·요약·상세 설명·구조화 데이터 확인.",
+    "source_urls": [
+      "https://play.google.com/store/apps/details?id=phoenix.ai.iot&hl=ko&gl=KR",
+      "https://play.google.com/store/apps/details?id=lotto.bands.release&hl=ko&gl=KR",
+      "https://play.google.com/store/apps/details?id=com.avs.aaa&hl=ko&gl=KR",
+      "https://play.google.com/store/apps/details?id=mobile.location.tracker&hl=ko&gl=KR",
+      "https://play.google.com/store/apps/details?id=com.alphavipertrading.masilpick&hl=ko&gl=KR",
+      "https://play.google.com/store/apps/details?id=avs.EnglishCard&hl=ko&gl=KR",
+      "https://play.google.com/store/apps/details?id=phoenix.bunin.tester&hl=ko&gl=KR",
+      "https://play.google.com/store/apps/details?id=dkblossom.sound.note&hl=ko&gl=KR",
+      "https://play.google.com/store/apps/details?id=dkblossom.matgo&hl=ko&gl=KR",
+      "https://play.google.com/store/apps/details?id=com.dkblossom.publicfacilityai&hl=ko&gl=KR"
+    ],
+    "raw_evidence_file": "C:\\Users\\blueb\\AppData\\Local\\Phoenix\\brochure-20261013\\play_full_verified.json",
+    "publicfacility_package_source": "H:\\내 드라이브\\프로젝트\\공공시설 AI 똑똑\\source\\mobile\\app.json",
+    "exclusions": [
+      "실명·개인 연락처·주소",
+      "가격·야간 기준·미확정 교육시간",
+      "투자 수익·당첨·화면 복구 보장",
+      "검증되지 않은 고객 성과·후기"
+    ]
+  }
+}
