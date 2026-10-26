@@ -7,8 +7,8 @@ DATA=json.loads((ROOT/'assets/company/content.json').read_text(encoding='utf-8-s
 E=html.escape
 BASE='https://www.alphavipertrading.com'
 ASSET='/assets/company/'
-keys={'phoenix.ai.iot':'home','avs.EnglishCard':'english','dkblossom.sound.note':'sorinote','com.dkblossom.publicfacilityai':'public','mobile.location.tracker':'location','com.alphavipertrading.masilpick':'market','phoenix.bunin.tester':'burnin','lotto.bands.release':'lotto','com.avs.aaa':'avs','dkblossom.matgo':'matgo'}
-groups={'home':'생활','location':'생활','market':'생활','public':'생활','english':'학습','sorinote':'도구','burnin':'도구','lotto':'취미','matgo':'취미','avs':'투자'}
+keys={'phoenix.ai.iot':'home','avs.EnglishCard':'english','dkblossom.sound.note':'sorinote','com.dkblossom.publicfacilityai':'public','mobile.location.tracker':'location','com.alphavipertrading.masilpick':'market','phoenix.bunin.tester':'burnin','lotto.bands.release':'lotto','com.avs.aaa':'avs','dkblossom.matgo':'matgo','com.MarketAlarm':'marketalarm'}
+groups={'home':'생활','location':'생활','market':'생활','public':'생활','english':'학습','sorinote':'도구','burnin':'도구','lotto':'취미','matgo':'취미','avs':'투자','marketalarm':'투자'}
 
 def nav(active=''):
     links=[('/about','회사 소개','about'),('/services','사업 영역','services'),('/product','서비스 제품','product'),('/projects','개발·교육 사례','projects')]
@@ -66,9 +66,10 @@ cards=''
 for a in DATA['apps']:
     k=keys[a['package']]; g=groups[k]
     ref=urllib.parse.urlencode({'utm_source':'dkblossom_website','utm_medium':'owned','utm_campaign':'company_products','utm_content':k})
-    url=a['store_url']+'&referrer='+urllib.parse.quote(ref,safe='')
-    links.append({'app':a['display_name'],'package':a['package'],'channel':'company_website','url':url})
-    cards+=f'<article class="app-card" id="{k}" data-app-group="{g}"><div class="app-card-header"><img src="{ASSET}{k}_icon.png" alt="{E(a["display_name"])} 아이콘" loading="lazy" width="62" height="62"><div><small>{E(a["category"])}</small><h3>{E(a["display_name"])}</h3></div></div><p>{E(a["benefit"])}</p><ul>'+''.join('<li>'+E(f)+'</li>' for f in a['features'])+f'</ul><p class="app-note">{E(a["use_note"])}</p><div class="app-card-actions"><a href="{E(url,quote=True)}" target="_blank" rel="noopener">Google Play 보기 ↗</a><button type="button" class="screen-button" data-screen="{ASSET}{k}_screen.png" data-title="{E(a["display_name"],quote=True)}">실제 화면 보기</button></div></article>'
+    url=(a['store_url']+'&referrer='+urllib.parse.quote(ref,safe='')) if a.get('store_url') else None
+    if url: links.append({'app':a['display_name'],'package':a['package'],'channel':'company_website','url':url})
+    store_action = f'<a href="{E(url,quote=True)}" target="_blank" rel="noopener">Google Play 보기 ↗</a>' if url else '<span class="app-release-status">Google Play 출시 준비 중</span>'
+    cards+=f'<article class="app-card" id="{k}" data-app-group="{g}"><div class="app-card-header"><img src="{ASSET}{k}_icon.png" alt="{E(a["display_name"])} 아이콘" loading="lazy" width="62" height="62"><div><small>{E(a["category"])}</small><h3>{E(a["display_name"])}</h3></div></div><p>{E(a["benefit"])}</p><ul>'+''.join('<li>'+E(f)+'</li>' for f in a['features'])+f'</ul><p class="app-note">{E(a["use_note"])}</p><div class="app-card-actions">{store_action}<button type="button" class="screen-button" data-screen="{ASSET}{k}_screen.png" data-title="{E(a["display_name"],quote=True)}">실제 화면 보기</button></div>'+ (f'<a class="text-link" href="{E(a["privacy_url"],quote=True)}">개인정보처리방침 ↗</a>' if a.get('privacy_url') else '') + '</article>'
 modal='<dialog class="screen-modal" data-screen-modal aria-labelledby="screen-title"><div class="modal-top"><h3 id="screen-title"></h3><button type="button" class="modal-close" data-close-screen aria-label="화면 닫기">×</button></div><img data-screen-image alt=""><p>실제 앱 화면 · 기능과 화면 구성은 버전·기기 환경에 따라 달라질 수 있습니다.</p></dialog>'
 catalog=pagehead('OUR PRODUCTS','DK블라썸의 서비스 제품.','AVS 웹 기반 PC 제품과 Android 앱을 만나보세요. 관심 있는 분야를 고르고 실제 화면과 Google Play 등록정보를 확인하실 수 있습니다.')+avs_feature().replace('href="/product">전체 앱 살펴보기','href="#apps">전체 앱 살펴보기')+'<section class="section" id="apps"><div class="container"><span class="eyebrow">ANDROID COLLECTION</span><h2>생활 속, 손안의 서비스.</h2><div class="app-filters" aria-label="앱 분야 필터">'+''.join(f'<button class="filter" type="button" data-filter="{g}" aria-pressed="{str(g=="전체").lower()}">{g}</button>' for g in ['전체','생활','학습','도구','취미','투자'])+f'</div><p class="app-count" data-app-count aria-live="polite">전체 {len(DATA["apps"])}개 앱</p><div class="app-grid">'+cards+'</div></div></section>'+modal+banner()
 page('product','서비스 제품 · AVS와 자체 앱','DK블라썸의 AVS 웹 기반 투자 운영 제품 및 생활·학습·스마트홈·생산성 Android 앱을 소개합니다.',catalog,'product')

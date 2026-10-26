@@ -274,6 +274,26 @@
         "https://play.google.com/store/apps/details?id=dkblossom.matgo&hl=ko&gl=KR"
       ],
       "official_short_description": "패를 탭하면 바로 내는 손맛! 난이도와 점당 게임머니를 내 취향대로 설정하고, AI와 즐기는 오프라인 맞고"
+    },
+    {
+      "package": "com.MarketAlarm",
+      "official_name": "Market Fear Alarm - 시장공포알림",
+      "display_name": "Market Fear Alarm",
+      "category": "시장 심리 · 알림",
+      "benefit": "시장 심리와 주요 지표를 살펴보고, 설정한 기준의 알림을 받아보세요.",
+      "features": [
+        "미국·한국·가상자산 심리 지표",
+        "주요 시장지표·차트와 과거 위기 비교",
+        "사용자 기준 알림·한국어/영어 지원"
+      ],
+      "use_note": "정보는 참고용이며 투자 성과를 보장하지 않습니다. 자료 기준일과 출처를 확인하세요. 알림은 기기 환경에 따라 지연될 수 있습니다.",
+      "status": "Google Play 출시 준비 중",
+      "store_url": null,
+      "status_scope": "2026-10-27 공개 Play 상세 페이지 HTTP 404. 공개 전까지 설치 링크를 표시하지 않음.",
+      "privacy_url": "https://www.alphavipertrading.com/privacy/market-alarm",
+      "source_urls": [
+        "https://www.alphavipertrading.com/privacy/market-alarm"
+      ]
     }
   ],
   "verification": {
