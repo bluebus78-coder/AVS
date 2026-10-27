@@ -1,6 +1,8 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "buildCommand": "npm run verify:release",
+  "outputDirectory": ".",
   "crons": [{"path": "/api/data-refresh", "schedule": "20 21 * * *"}],
   "functions": {"api/krx-data.js": {"maxDuration": 60, "regions": ["sin1"]}, "api/krx-research.js": {"maxDuration": 60, "regions": ["sin1"]}, "api/financial-research.js": {"maxDuration": 300, "regions": ["sin1"]}, "api/data-refresh.js": {"maxDuration": 240, "regions": ["sin1"]}, "api/data-hub.js": {"maxDuration": 60, "regions": ["sin1"]}},
   "headers": [
