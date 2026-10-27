@@ -1,0 +1,8 @@
+{
+  "name": "avs-data-hub",
+  "private": true,
+  "version": "6.8.0",
+  "scripts": {"test": "node --test tools/*.test.cjs"},
+  "dependencies": {"@neondatabase/serverless": "1.0.2"},
+  "engines": {"node": "24.x"}
+}

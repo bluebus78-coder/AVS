@@ -1,5 +1,7 @@
 tools/
 *.md
 .env*
+.agents/
+skills-lock.json
 assets/company/content.json
 assets/company/channel-links.csv
