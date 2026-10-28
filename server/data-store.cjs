@@ -65,7 +65,10 @@ function makeStore(env=process.env) {
     },
     async status() {
       await init(); const [r]=await sql`SELECT count(*)::int AS resources,count(payload)::int AS available,
-        count(*) FILTER(WHERE expires_at<now())::int AS expired,max(collected_at) AS last_collected_at FROM avs_public_data`;
+        count(*) FILTER(WHERE expires_at<now())::int AS expired,max(collected_at) AS last_collected_at,
+        current_setting('TimeZone') AS budget_timezone,current_date::text AS budget_day,
+        ((current_date+1)::timestamp AT TIME ZONE current_setting('TimeZone')) AS next_budget_day_at,
+        now() AS database_observed_at FROM avs_public_data`;
       return r;
     },
     async prune() {
