@@ -1,19 +1,19 @@
 {
   "packageName": "com.avs.aaa",
-  "versionCode": 248,
-  "versionName": "9.3",
+  "versionCode": 249,
+  "versionName": "9.4",
   "minimumSupportedVersionCode": 103,
   "published": true,
   "mandatory": false,
   "channel": "direct",
-  "title": "AVS MOBILE PRO 9.3",
+  "title": "AVS MOBILE PRO 9.4",
   "notes": [
-    "9시 개장 후 추천자료·주문계획을 재검증하고 전략별 고정 진입·청산 확인을 보완했습니다.",
-    "최신 수급·매크로의 신규 투자 여력 반영과 가상 지정가 체결을 보완했습니다.",
-    "가격 조건이 달라진 미전송 주문은 조건대기로 유지해 다음 점검에서 재평가합니다. 수익 개선 입증·기기 설치·Play 출시는 별도입니다."
+    "영문이 포함된 국내 종목코드의 수집·검색·차트·잔고·주문 형식검사 누락을 수정했습니다.",
+    "전체 시장 부분 수집을 완료로 오인하지 않고 일시적 조회 오류를 재시도하며 종목별 실패 원인을 기록합니다.",
+    "정상 기술자료 캐시와 기존 매매 안전 기준을 유지합니다. 기기 설치·Play 출시 및 실제 수익 개선 입증은 별도입니다."
   ],
-  "apkUrl": "https://www.alphavipertrading.com/downloads/mobile/AVS_Mobile_9.3.apk",
-  "sha256": "46C87625FD09E72FBAA040673D6080C1C82142DED7A31E857AA8DB3C9211A095",
+  "apkUrl": "https://www.alphavipertrading.com/downloads/mobile/AVS_Mobile_9.4.apk",
+  "sha256": "D48CAEF082972D0BA9DEE22AC04861E64B591DCA9E356AABA512299F92DE05A5",
   "playUrl": "https://play.google.com/store/apps/details?id=com.avs.aaa",
-  "publishedAt": "2026-10-27T20:39:51+09:00"
+  "publishedAt": "2026-10-28T22:25:49+09:00"
 }
