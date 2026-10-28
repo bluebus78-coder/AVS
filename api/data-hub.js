@@ -19,7 +19,21 @@ function createHandler(storeFactory=makeStore) {
       return res.status(200).json(result);
     } catch(e) {
       const invalid=e.message==='INVALID_REQUEST', disabled=e.message==='SOURCE_NOT_ENABLED';
-      return res.status(invalid?400:disabled?409:503).json({error:invalid?'INVALID_REQUEST':disabled?'SOURCE_NOT_ENABLED':'DATA_UNAVAILABLE'});
+      if(invalid || disabled) return res.status(invalid?400:409).json({error:e.message});
+      const known = ['COLLECTION_BUDGET_EXHAUSTED','STORE_NOT_CONFIGURED','LEASE_LOST',
+        'UPSTREAM_UNAVAILABLE','EMPTY_UPSTREAM','INVALID_UPSTREAM','RESPONSE_TOO_LARGE',
+        'DART_NOT_CONFIGURED','DART_TIMEOUT','DART_HTTP_ERROR','DART_INVALID_RESPONSE',
+        'DART_AUTH_ERROR','DART_QUOTA_EXCEEDED','DART_MAINTENANCE','DART_FILE_UNAVAILABLE'];
+      const reason=known.includes(e.message)?e.message:'DATA_UNAVAILABLE';
+      const upstream=reason.startsWith('UPSTREAM_') || ['EMPTY_UPSTREAM','INVALID_UPSTREAM','RESPONSE_TOO_LARGE'].includes(reason)
+        || reason.startsWith('DART_') && reason!=='DART_NOT_CONFIGURED';
+      // Never log arbitrary exceptions, URLs, request bodies or credentials.
+      console.warn(JSON.stringify({event:'public_data_failure',reason,
+        source:Object.hasOwn(SOURCES,req.body?.source||'')?req.body.source:'unknown',
+        sqlstate:['42P01','42703','23505','42501','53300'].includes(e.code)?e.code:undefined}));
+      if(reason==='COLLECTION_BUDGET_EXHAUSTED') res.setHeader('Retry-After','300');
+      return res.status(reason==='COLLECTION_BUDGET_EXHAUSTED'?429:upstream?502:503)
+        .json({error:'DATA_UNAVAILABLE',reason});
     }
   };
 }
