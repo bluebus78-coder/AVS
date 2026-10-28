@@ -27,6 +27,35 @@ test('parallel cold requests perform one upstream call',async()=>{
   const f=fixture(),hub=createHub(f.store,async()=>{await new Promise(r=>setTimeout(r,10));return f.collector();},f.clock);
   const results=await Promise.all([hub.read(input),hub.read(input)]);assert.equal(f.calls(),1);assert.ok(results.some(r=>r.status==='pending'));
 });
+
+test('busy or retry-backoff requests do not consume collection budget', async()=>{
+  const f=fixture(); let charged=0;
+  f.store.claim=async()=>null;
+  f.store.budget=async()=>{charged++; return true;};
+  const result=await createHub(f.store,f.collector,f.clock).read(input);
+  assert.equal(result.status,'pending');
+  assert.equal(charged,0);
+  assert.equal(f.calls(),0);
+});
+
+test('exhausted budget cannot create arbitrary empty cache rows',async()=>{
+  const f=fixture(); let claimed=0,charged=0;
+  f.store.budgetAvailable=async()=>false;
+  f.store.claim=async()=>{claimed++; return 'owner';};
+  f.store.budget=async()=>{charged++; return false;};
+  await assert.rejects(createHub(f.store,f.collector,f.clock).read(input),/BUDGET/);
+  assert.equal(claimed,0); assert.equal(charged,0); assert.equal(f.calls(),0);
+});
+
+test('quota race releases its lease without recording an upstream failure',async()=>{
+  const f=fixture(); let released=0,failed=0;
+  f.store.budgetAvailable=async()=>true;
+  f.store.budget=async()=>false;
+  f.store.release=async k=>{released++;f.leases.delete(k);};
+  f.store.fail=async()=>{failed++;};
+  await assert.rejects(createHub(f.store,f.collector,f.clock).read(input),/BUDGET/);
+  assert.equal(released,1); assert.equal(failed,0); assert.equal(f.leases.size,0);
+});
 test('schema is closed and cannot forward arbitrary URLs or credentials',()=>{
   for(const x of [{...input,url:'http://localhost/'},{source:'unknown',params:{}},{source:'__proto__',params:{code:'005930'}},{...input,params:{...input.params,api_key:'hidden'}},{source:'naver_company',params:{code:'../etc'}}]) assert.throws(()=>requestSpec(x));
 });

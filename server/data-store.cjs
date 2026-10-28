@@ -38,6 +38,15 @@ function makeStore(env=process.env) {
         ON CONFLICT(day) DO UPDATE SET calls=avs_data_budget.calls+1 WHERE avs_data_budget.calls<${limit} RETURNING calls`;
       return rows.length>0;
     },
+    async budgetAvailable() {
+      await init();
+      const limit=Math.min(12000,Math.max(1,Number(env.AVS_DATA_DAILY_REQUEST_LIMIT)||2000));
+      const [row]=await sql`SELECT COALESCE((SELECT calls FROM avs_data_budget WHERE day=current_date),0)<${limit} AS available`;
+      return row.available === true;
+    },
+    async release(key,owner) {
+      await sql`UPDATE avs_public_data SET lease_until=NULL,owner=NULL WHERE key=${key} AND owner=${owner}`;
+    },
     async save(key,owner,payload,checksum,ttl) {
       const packed=gzipSync(Buffer.from(JSON.stringify(payload))).toString('base64');
       const rows=await sql`UPDATE avs_public_data SET payload=${packed},checksum=${checksum},collected_at=now(),
