@@ -14,8 +14,17 @@ function validateRelease(root) {
   if (crypto.createHash('sha256').update(bytes).digest('hex').toUpperCase() !== manifest.sha256.toUpperCase()) {
     throw Error('MOBILE_ARTIFACT_HASH_MISMATCH');
   }
-  if (!fs.readFileSync(path.join(root, 'download.html'), 'utf8').includes(`downloads/mobile/${filename}`)) {
+  const downloadPage = fs.readFileSync(path.join(root, 'download.html'), 'utf8');
+  if (!downloadPage.includes(`downloads/mobile/${filename}`)) {
     throw Error('DOWNLOAD_PAGE_RELEASE_MISMATCH');
+  }
+  const pcLinks = [...downloadPage.matchAll(/href=["'](downloads\/pc\/AVS_\d+\.\d+\.ZIP)["']/gi)];
+  if (!pcLinks.length) throw Error('PC_DOWNLOAD_LINK_MISSING');
+  for (const [, relative] of pcLinks) {
+    const pcFile = path.join(root, relative);
+    if (!fs.existsSync(pcFile) || !fs.statSync(pcFile).isFile() || fs.statSync(pcFile).size === 0) {
+      throw Error(`PC_DOWNLOAD_ARTIFACT_MISSING:${relative}`);
+    }
   }
   for (const route of ['data-hub', 'financial-research', 'krx-data', 'krx-research', 'data-refresh']) {
     if (!fs.existsSync(path.join(root, `api/${route}.js`))) throw Error(`MISSING_DATA_ROUTE:${route}`);

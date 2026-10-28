@@ -1,19 +1,19 @@
 {
   "packageName": "com.avs.aaa",
-  "versionCode": 251,
-  "versionName": "9.6",
+  "versionCode": 252,
+  "versionName": "9.7",
   "minimumSupportedVersionCode": 103,
   "published": true,
   "mandatory": false,
   "channel": "direct",
-  "title": "AVS MOBILE PRO 9.6",
+  "title": "AVS MOBILE PRO 9.7",
   "notes": [
-    "관심종목 검증 자료·분석 점수 갱신",
-    "시세 원시각·누적 거래량 누락 처리 보완",
-    "기존 계좌·청산 기준 보존"
+    "분석에 사용하는 최근 일봉부터 확정한 뒤 필수값을 검증합니다. 사용하지 않는 오래된 오류 때문에 정상 최근 320봉까지 분석이 막히는 문제를 수정합니다.",
+    "분석 구간의 누락·가격 범위 불일치·동일 일자 가격 충돌은 계속 검출하고 재수집합니다. 오류 가격을 임의 수정하거나 사용 봉을 삭제하지 않습니다.",
+    "자료 대기 사유를 필수값 누락·가격 범위 불일치·중복 충돌로 구분합니다. 손절·익절·전략 가중치와 계좌·보유 장부는 변경하지 않습니다."
   ],
-  "apkUrl": "https://www.alphavipertrading.com/downloads/mobile/AVS_Mobile_9.6.apk",
-  "sha256": "50DB75DFC298ACEAEAA4AC6F84290594A310600C0F969E9A860B3E639F42F068",
+  "apkUrl": "https://www.alphavipertrading.com/downloads/mobile/AVS_Mobile_9.7.apk",
+  "sha256": "AFF2F495E1DAF6620EE3A37EC588FD56F19424D3555D42F9762EF23D056B5389",
   "playUrl": "https://play.google.com/store/apps/details?id=com.avs.aaa",
-  "publishedAt": "2026-10-29T02:34:10+09:00"
+  "publishedAt": "2026-10-29T03:53:55+09:00"
 }
