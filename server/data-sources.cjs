@@ -14,7 +14,7 @@ const SOURCES = Object.freeze({
 function requestSpec(input) {
   if (!input || typeof input !== 'object' || Array.isArray(input)) throw Error('INVALID_REQUEST');
   const {source, params:p} = input;
-  if (Object.keys(input).some(k=> !['source','params'].includes(k)) || !Object.hasOwn(SOURCES,source)
+  if (Object.keys(input).some(k=> !['source','params'].includes(k)) || typeof source!=='string' || !Object.hasOwn(SOURCES,source)
       || !p || typeof p !== 'object' || Array.isArray(p)) throw Error('INVALID_REQUEST');
   if(Object.hasOwn(EXTRA,source)) return extraSpec(source,p);
   const exact = keys => {if(Object.keys(p).some(k=>!keys.includes(k))) throw Error('INVALID_REQUEST');};

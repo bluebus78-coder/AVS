@@ -29,7 +29,7 @@ function createHandler(storeFactory=makeStore) {
         || reason.startsWith('DART_') && reason!=='DART_NOT_CONFIGURED';
       // Never log arbitrary exceptions, URLs, request bodies or credentials.
       console.warn(JSON.stringify({event:'public_data_failure',reason,
-        source:Object.hasOwn(SOURCES,req.body?.source||'')?req.body.source:'unknown',
+        source:typeof req.body?.source==='string' && Object.hasOwn(SOURCES,req.body.source)?req.body.source:'unknown',
         sqlstate:['42P01','42703','23505','42501','53300'].includes(e.code)?e.code:undefined}));
       if(reason==='COLLECTION_BUDGET_EXHAUSTED') res.setHeader('Retry-After','300');
       return res.status(reason==='COLLECTION_BUDGET_EXHAUSTED'?429:upstream?502:503)
