@@ -1,4 +1,5 @@
 "use strict";
+const {requireStockCode}=require('./stock-code.cjs');
 const SYMBOLS=['KRW=X','^KS11','^KQ11','^IXIC','^GSPC','^DJI','^SOX','^VIX','^TNX','CL=F','GC=F','DX-Y.NYB'];
 const SERIES=['VIXCLS','DGS10','DGS2','FEDFUNDS','DEXKOUS'];
 const NEWS=['코스피 증시','NASDAQ stock market','AI semiconductor stock'];
@@ -8,7 +9,7 @@ const EXTRA=Object.freeze(Object.fromEntries([
 ].map(([name,ttl])=>[name,{label:name,ttl}])));
 function extraSpec(source,p) {
   const exact=keys=>{if(Object.keys(p).some(k=>!keys.includes(k))) throw Error('INVALID_REQUEST');};
-  const code=()=>{if(!/^\d{6}$/.test(p.code||'')) throw Error('INVALID_REQUEST');};
+  const code=()=>requireStockCode(p.code);
   let url;
   if(['naver_integration','naver_company_data','naver_finance','naver_trend'].includes(source)) {
     exact(source==='naver_finance'?['code','period']:source==='naver_trend'?['code','page']:['code']);code();

@@ -2,6 +2,7 @@
 const {collectDart} = require('./financials.cjs');
 const MAX_BYTES = 1800000;
 const {EXTRA,extraSpec}=require('./macro-sources.cjs');
+const {requireStockCode}=require('./stock-code.cjs');
 const SOURCES = Object.freeze({
   ...EXTRA,
   dart: {label: 'DART 재무', ttl: 86400},
@@ -18,7 +19,7 @@ function requestSpec(input) {
   if(Object.hasOwn(EXTRA,source)) return extraSpec(source,p);
   const exact = keys => {if(Object.keys(p).some(k=>!keys.includes(k))) throw Error('INVALID_REQUEST');};
   let url;
-  const code = () => {if(!/^\d{6}$/.test(p.code || '')) throw Error('INVALID_REQUEST');};
+  const code = () => requireStockCode(p.code);
   if(source === 'dart') {
     exact(['corpCode','year','report','basis']);
     if(!/^\d{8}$/.test(p.corpCode || '') || !/^20\d{2}$/.test(p.year || '')
