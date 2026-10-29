@@ -1,19 +1,19 @@
 {
   "packageName": "com.avs.aaa",
-  "versionCode": 252,
-  "versionName": "9.7",
+  "versionCode": 253,
+  "versionName": "9.8",
   "minimumSupportedVersionCode": 103,
   "published": true,
   "mandatory": false,
   "channel": "direct",
-  "title": "AVS MOBILE PRO 9.7",
+  "title": "AVS MOBILE PRO 9.8",
   "notes": [
-    "분석에 사용하는 최근 일봉부터 확정한 뒤 필수값을 검증합니다. 사용하지 않는 오래된 오류 때문에 정상 최근 320봉까지 분석이 막히는 문제를 수정합니다.",
-    "분석 구간의 누락·가격 범위 불일치·동일 일자 가격 충돌은 계속 검출하고 재수집합니다. 오류 가격을 임의 수정하거나 사용 봉을 삭제하지 않습니다.",
-    "자료 대기 사유를 필수값 누락·가격 범위 불일치·중복 충돌로 구분합니다. 손절·익절·전략 가중치와 계좌·보유 장부는 변경하지 않습니다."
+    "장중 시총 순서 변화로 페이지 경계에서 종목이 중복·누락되면 종목코드 기준으로 합치고 전체 수를 대조해 재수집합니다.",
+    "한국투자증권 공개 종목 마스터의 종목명·코드·시장 정보를 대조하여 목록에서 빠진 주식도 시세 재수집 대상으로 유지합니다. 이 경로는 계좌 연결과 무관하며 가격을 채워 넣지 않습니다. ETF·ETN·신주인수권은 제외합니다.",
+    "목록에서 필수 시세가 누락되면 별도 네이버 시세 응답의 KRX 시장 자료로 재수집합니다. 종목·시장·통화·기준시각이 일치하는 전체 응답만 사용합니다."
   ],
-  "apkUrl": "https://www.alphavipertrading.com/downloads/mobile/AVS_Mobile_9.7.apk",
-  "sha256": "AFF2F495E1DAF6620EE3A37EC588FD56F19424D3555D42F9762EF23D056B5389",
+  "apkUrl": "https://www.alphavipertrading.com/downloads/mobile/AVS_Mobile_9.8.apk",
+  "sha256": "CA5B692F3CDEAB0E0042E2A00BE1D85BB048A811CC7EDA66CB24BE6F4099FB9A",
   "playUrl": "https://play.google.com/store/apps/details?id=com.avs.aaa",
-  "publishedAt": "2026-10-29T03:53:55+09:00"
+  "publishedAt": "2026-10-29T10:23:58+09:00"
 }
