@@ -49,7 +49,9 @@ async function collect(spec, env=process.env, fetcher=fetch) {
     const specs=[{source:'naver_integration',params:{code}},...['annual','quarter'].map(period=>({source:'naver_finance',params:{code,period}}))];
     const responses=await Promise.all(specs.map(s=>collect(requestSpec(s),env,fetcher)));
     const [integration,annual,quarter]=responses.map(r=>JSON.parse(Buffer.from(r.body,'base64').toString('utf8')));
-    const bytes=Buffer.from(JSON.stringify({itemCode:code,integration,annual,quarter}));
+    const bytes=Buffer.from(JSON.stringify({itemCode:code,integration,annual,quarter,
+      availability:{integration:'available',annual:annual.financeInfo===null?'not_provided':'available',
+        quarter:quarter.financeInfo===null?'not_provided':'available'}}));
     return {kind:'http',status:200,contentType:'application/json; charset=utf-8',body:bytes.toString('base64'),
       body_sha256:require('node:crypto').createHash('sha256').update(bytes).digest('hex'),origin:responses.map(r=>r.origin)};
   }
@@ -65,7 +67,7 @@ async function collect(spec, env=process.env, fetcher=fetch) {
     size+=chunk.length; if(size>MAX_BYTES) throw Error('RESPONSE_TOO_LARGE'); chunks.push(chunk);
   }
   const bytes=Buffer.concat(chunks);
-  if(bytes.length<100) throw Error('EMPTY_UPSTREAM');
+  if(bytes.length===0 || (bytes.length<100 && spec.source!=='naver_finance')) throw Error('EMPTY_UPSTREAM');
   const text=bytes.toString('latin1');
   if(Object.hasOwn(EXTRA,spec.source)) {
     if(spec.source==='news') {if(!/<rss[\s>]/i.test(text)) throw Error('INVALID_UPSTREAM');}
@@ -80,7 +82,9 @@ async function collect(spec, env=process.env, fetcher=fetch) {
       } else if(spec.source==='naver_trend') {
         if(!Array.isArray(data)||data.some(r=>r.itemCode!==spec.params.code)) throw Error('INVALID_UPSTREAM');
       } else if(data.itemCode!==spec.params.code) throw Error('INVALID_UPSTREAM');
-      if(spec.source==='naver_finance' && (data.financePeriodType!==spec.params.period || data.financeInfo?.itemCode!==spec.params.code || !Array.isArray(data.financeInfo?.rowList))) throw Error('INVALID_UPSTREAM');
+      if(spec.source==='naver_finance' && (data.financePeriodType!==spec.params.period
+        || data.financeInfo!==null && (data.financeInfo?.itemCode!==spec.params.code
+          || !Array.isArray(data.financeInfo?.rowList)))) throw Error('INVALID_UPSTREAM');
     }
   } else if(spec.source==='naver_prices' ? !text.includes('[') : !/<html|<table/i.test(text)) throw Error('INVALID_UPSTREAM');
   return {kind:'http',status:200,contentType:response.headers.get('content-type') || 'application/octet-stream',
