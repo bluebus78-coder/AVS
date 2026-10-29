@@ -20,8 +20,10 @@ function makeStore(env=process.env) {
   return {
     async read(key) {
       await init();
-      const [r]=await sql`SELECT payload,checksum,collected_at,expires_at,retry_after FROM avs_public_data WHERE key=${key}`;
+      const [r]=await sql`SELECT payload,checksum,collected_at,expires_at,retry_after,accessed_at FROM avs_public_data WHERE key=${key}`;
       if(!r) return null;
+      if(r.accessed_at && Date.now()-new Date(r.accessed_at).getTime()>3600000)
+        await sql`UPDATE avs_public_data SET accessed_at=now() WHERE key=${key} AND accessed_at<now()-interval '1 hour'`;
       return {...r,payload:r.payload ? JSON.parse(gunzipSync(Buffer.from(r.payload,'base64'),{maxOutputLength:3000000})) : null};
     },
     async claim(key,request) {
@@ -60,8 +62,11 @@ function makeStore(env=process.env) {
     },
     async due(limit=20) {
       await init();
-      return sql`SELECT request FROM avs_public_data WHERE expires_at<now() AND (retry_after IS NULL OR retry_after<now())
-        AND accessed_at>now()-interval '7 days' ORDER BY expires_at LIMIT ${limit}`;
+      return sql`SELECT request FROM avs_public_data WHERE (payload IS NULL OR expires_at<now()) AND (retry_after IS NULL OR retry_after<now())
+        AND accessed_at>now()-interval '7 days'
+        ORDER BY CASE WHEN request->>'source' IN ('naver_market_list','naver_index','yahoo_chart','fred','news') THEN 0
+          WHEN request->>'source' IN ('naver_integration','naver_company_data','naver_trend') THEN 1 ELSE 2 END,
+          accessed_at DESC,expires_at NULLS FIRST,key LIMIT ${limit}`;
     },
     async status() {
       await init(); const [r]=await sql`SELECT count(*)::int AS resources,count(payload)::int AS available,
@@ -69,7 +74,12 @@ function makeStore(env=process.env) {
         current_setting('TimeZone') AS budget_timezone,current_date::text AS budget_day,
         ((current_date+1)::timestamp AT TIME ZONE current_setting('TimeZone')) AS next_budget_day_at,
         now() AS database_observed_at FROM avs_public_data`;
-      return r;
+      const groups=await sql`SELECT request->>'source' AS source,count(*)::int AS resources,
+        count(payload)::int AS available,count(*) FILTER(WHERE expires_at<now())::int AS expired,
+        count(*) FILTER(WHERE payload IS NULL)::int AS missing,
+        count(*) FILTER(WHERE accessed_at>now()-interval '7 days')::int AS recently_used
+        FROM avs_public_data GROUP BY request->>'source' ORDER BY source`;
+      return {...r,cache_by_source:groups};
     },
     async prune() {
       await sql`DELETE FROM avs_public_data WHERE accessed_at<now()-interval '14 days' AND (lease_until IS NULL OR lease_until<now())`;
