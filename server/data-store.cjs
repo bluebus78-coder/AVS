@@ -64,6 +64,7 @@ function makeStore(env=process.env) {
       await init();
       return sql`SELECT request FROM avs_public_data WHERE (payload IS NULL OR expires_at<now()) AND (retry_after IS NULL OR retry_after<now())
         AND accessed_at>now()-interval '7 days'
+        AND NOT (request->>'source'='naver_prices' AND request->'params'->>'end'<to_char(current_date-7,'YYYYMMDD'))
         ORDER BY CASE WHEN request->>'source' IN ('naver_market_list','naver_index','yahoo_chart','fred','news') THEN 0
           WHEN request->>'source' IN ('naver_integration','naver_company_data','naver_trend') THEN 1 ELSE 2 END,
           accessed_at DESC,expires_at NULLS FIRST,key LIMIT ${limit}`;

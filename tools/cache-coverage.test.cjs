@@ -25,6 +25,7 @@ test('refresh queue includes failed first collections and prioritizes live input
   assert.match(q.sql,/retry_after IS NULL OR retry_after<now\(\)/);
   assert.match(q.sql,/naver_market_list.*naver_index.*yahoo_chart/s);
   assert.match(q.sql,/accessed_at DESC/);
+  assert.match(q.sql,/current_date-7/);
   assert.equal(q.values.at(-1),40);
 });
 
