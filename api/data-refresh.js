@@ -19,7 +19,7 @@ module.exports=async(req,res)=>{
   if(req.method!=='GET') return res.status(405).json({error:'METHOD_NOT_ALLOWED'});
   if(!authorized(req.headers.authorization,process.env.CRON_SECRET)) return res.status(401).json({error:'UNAUTHORIZED'});
   try {
-    const store=makeStore(),hub=createHub(store),due=await store.due(40),start=Date.now();let refreshed=0,failed=0,cached=0,next=0;
+    const store=makeStore(),hub=createHub(store),due=await store.due(120),start=Date.now();let refreshed=0,failed=0,cached=0,next=0;
     const krxHub=krx.createKrxHub(store);
     const queue=[...new Map([...dailyInputs(),...(process.env.KRX_API_KEY?krx.dailyInputs():[]),...due.map(r=>r.request)].map(r=>[JSON.stringify(r),r])).values()];
     await Promise.all(Array.from({length:4},async()=>{
