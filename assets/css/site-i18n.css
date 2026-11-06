@@ -1,0 +1,29 @@
+.locale-switcher{position:relative;flex:0 0 auto;margin-left:auto;font-size:13px;color:#edf2f4;letter-spacing:0;z-index:70}
+html:not([lang=ko]) img.das-refined-photo{background-image:none}
+.locale-switcher summary{list-style:none;cursor:pointer;min-height:40px;padding:9px 26px 9px 12px;border:1px solid #ffffff40;border-radius:4px;white-space:nowrap;position:relative}
+.locale-switcher summary::-webkit-details-marker{display:none}
+.locale-switcher summary:after{content:'';position:absolute;right:11px;top:16px;width:6px;height:6px;border-right:1px solid currentColor;border-bottom:1px solid currentColor;transform:rotate(45deg)}
+.locale-switcher summary:focus-visible,.locale-switcher a:focus-visible{outline:2px solid #77d6c3;outline-offset:3px}
+.locale-switcher nav{position:absolute;right:0;top:calc(100% + 8px);width:158px;background:#102530;border:1px solid #ffffff40;border-radius:4px;box-shadow:0 8px 24px #0005;padding:6px;display:grid;gap:2px}
+.locale-switcher a{display:block;padding:9px 12px;min-height:40px;white-space:nowrap;border-radius:3px}
+.locale-switcher a:hover,.locale-switcher a[aria-current]{background:#ffffff15;color:#9ae3cf}
+.locale-standalone{position:fixed;top:16px;right:16px;background:#102530}
+html:not([lang=ko]) body{word-break:normal;overflow-wrap:break-word}
+html:not([lang=ko]) h1,html:not([lang=ko]) h2,html:not([lang=ko]) h3{letter-spacing:0}
+html[lang=en] body{font-family:Arial,'Noto Sans KR',sans-serif}
+html[lang=ja] body{font-family:'Yu Gothic','Hiragino Kaku Gothic ProN',Meiryo,sans-serif;line-break:strict}
+html[lang=zh-CN] body{font-family:'Microsoft YaHei','PingFang SC','Noto Sans SC',sans-serif;line-break:strict}
+.header-inner{gap:18px}.company-nav{gap:18px}.company-nav a{overflow-wrap:normal}
+html:not([lang=ko]) .hero-content{width:68%}
+html[lang=en] .hero h1{font-size:54px}
+html:not([lang=ko]) .hero h1{max-width:100%}
+html:not([lang=ko]) .button,html:not([lang=ko]) .nav-cta{text-align:center;overflow-wrap:break-word}
+html:not([lang=ko]) .das-console-sidebar{overflow-wrap:anywhere}
+html:not([lang=ko]) .service-detail>*{min-width:0}
+html:not([lang=ko]) .service-detail h2{overflow-wrap:anywhere}
+html:not([lang=ko]) .project-grid>*{min-width:0}
+@media(max-width:760px){html[lang=ja] .hero h1,html[lang=zh-CN] .hero h1{font-size:34px}}
+@media(max-width:360px){html:not([lang=ko]) .education-visual strong{font-size:38px}}
+@media(max-width:1250px){.company-nav{gap:12px;font-size:12px}.company-nav .nav-cta{padding:8px 10px}.company-brand{gap:7px}.company-brand strong{font-size:16px}.header-inner{gap:12px}}
+@media(min-width:761px) and (max-width:1100px){.header-inner{flex-wrap:wrap;padding-block:12px;row-gap:10px}.company-nav{order:3;flex-basis:100%;justify-content:center;flex-wrap:wrap}.locale-switcher{margin-left:auto}}
+@media(max-width:760px){.header-inner{gap:9px;min-height:72px}.company-brand img{width:32px;height:32px}.company-brand strong{font-size:13px}.company-brand small{letter-spacing:0;font-size:9px}.company-brand{gap:6px}.menu-toggle{margin-left:auto;padding:7px 9px;font-size:12px}.locale-switcher{margin-left:0;font-size:12px}.locale-switcher summary{padding-left:9px;padding-right:23px;min-height:38px}.company-nav{font-size:14px}.company-nav a{min-height:32px}.company-nav .nav-cta{padding:10px}.locale-switcher nav{width:148px}html:not([lang=ko]) .hero-content{width:100%}html[lang=en] .hero h1{font-size:36px}html:not([lang=ko]) .hero{min-height:640px;height:auto}html:not([lang=ko]) .hero-content{padding-block:65px 75px}html:not([lang=ko]) .hero p{max-width:100%}html:not([lang=ko]) .hero .actions{align-items:stretch}html:not([lang=ko]) .support-band b{white-space:normal}html:not([lang=ko]) .contact-form{min-width:0}}
