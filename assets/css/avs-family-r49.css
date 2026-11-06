@@ -1,0 +1,26 @@
+.avs-family-nav { display: block; position: relative; inset: auto; padding: 0; border-radius: 0; background: #102432; color: #d6e5eb; border: 0; border-bottom: 1px solid #ffffff20; }
+.avs-family-nav .container { display: flex; flex-wrap: wrap; gap: 12px 28px; align-items: center; padding-block: 15px; }
+.avs-family-nav a { font-size: 13px; padding: 5px 0; }
+.avs-family-nav .avs-family-parent { color: #e2bc8b; font-weight: 750; margin-right: auto; }
+.avs-family-nav a[aria-current], .avs-family-nav a:hover { color: #e2bc8b; text-decoration: underline; }
+.avs-version-links { position: static; inset: auto; padding: 0; border: 0; border-radius: 0; background: transparent; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 26px 0; align-items: stretch; justify-content: normal; }
+.avs-version-links a { display: flex; flex-direction: column; gap: 7px; border: 1px solid #718992; border-radius: 5px; padding: 17px; min-width: 0; color: #193f49; }
+.avs-version-links strong { font-size: 15px; line-height: 1.5; overflow-wrap: anywhere; letter-spacing: 0; }
+.avs-version-links span { font-size: 12px; line-height: 1.6; }
+.avs-version-links a:hover { border-color: #b99156; background: #b9915612; }
+.dark-section .avs-version-links a, .page-hero .avs-version-links a, .legacy-body .avs-version-links a { color: #d6e5eb; border-color: #718992; }
+.featured .avs-version-links { grid-template-columns: 1fr; gap: 8px; }
+.featured .avs-version-links a { flex-direction: row; flex-wrap: wrap; align-items: center; justify-content: space-between; padding: 12px 15px; }
+.avs-breadcrumb { font-size: 12px; padding-block: 16px; }
+.avs-anchor-alias { display: block; scroll-margin-top: 105px; }
+.avs-lifestyle-preview { padding-block: 40px; }
+.avs-lifestyle-preview .app-intro { margin-top: 0; padding-top: 0; border: 0; }
+.avs-lifestyle-preview .app-intro a { color: #193f49; }
+#avs-web-pro, #alpha-viper-system, #avs-web-pro-download, #avs-mobile-pro-download { scroll-margin-top: 105px; }
+.legacy-body .section > .avs-version-links { margin-inline: auto; width: min(1160px, calc(100% - 38px)); }
+@media(max-width:760px) {
+ .avs-family-nav .container { gap: 6px 18px; padding-block: 12px; }
+ .avs-family-nav .avs-family-parent { flex-basis: 100%; }
+ .avs-family-nav a { font-size: 12px; }
+ .avs-version-links { grid-template-columns: 1fr; }
+}
