@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>AVS MOBILE PRO | 개인정보처리방침</title>
+  <meta name="description" content="AVS 모바일의 증권사 연결, 기기 내 거래 기록, 체험 모드와 데이터 삭제 방법">
+  <link rel="canonical" href="https://www.alphavipertrading.com/mobile/privacy">
+  <link rel="icon" href="../assets/images/logo-symbol.png">
+  <style>
+    :root { color-scheme: light; font-family: system-ui, -apple-system, 'Segoe UI', sans-serif; color: #18201e; background: #fff; letter-spacing: 0; }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-size: 16px; line-height: 1.85; overflow-wrap: anywhere; }
+    header { border-bottom: 1px solid #dce4e0; }
+    header > div, main, footer > div { max-width: 900px; margin: 0 auto; padding: 24px; }
+    .brand { display: inline-flex; gap: 12px; align-items: center; font-weight: 700; text-decoration: none; color: #18201e; }
+    .brand img { width: 36px; height: 36px; object-fit: contain; }
+    main { padding-top: 40px; padding-bottom: 64px; }
+    h1 { font-size: 30px; line-height: 1.4; margin: 0 0 12px; }
+    h2 { font-size: 20px; line-height: 1.55; margin: 0 0 12px; }
+    p { margin: 0 0 16px; }
+    .meta { color: #53615a; font-size: 14px; }
+    a { color: #11694b; text-underline-offset: 4px; }
+    a:focus-visible { outline: 3px solid #197bc5; outline-offset: 4px; }
+    nav { border-block: 1px solid #dce4e0; padding: 20px 0; margin: 28px 0; }
+    nav ol { margin: 0; padding-left: 24px; }
+    section { padding: 20px 0; scroll-margin-top: 24px; }
+    footer { border-top: 1px solid #dce4e0; background: #f4f7f5; font-size: 14px; }
+    @media (max-width: 480px) { header > div, main, footer > div { padding-inline: 20px; } h1 { font-size: 25px; } }
+  </style>
+</head>
+<body>
+<header><div><a class="brand" href="https://www.alphavipertrading.com/"><img src="../assets/images/logo-symbol.png" alt=""><span>AVS MOBILE PRO</span></a></div></header>
+<main>
+  <h1>AVS MOBILE PRO<br>개인정보처리방침</h1>
+  <p class="meta">적용일: <time datetime="2026-09-24">2026-09-24</time> · Android com.avs.aaa</p>
+  <p>문의: <a href="mailto:help@alphavipertrading.com">help@alphavipertrading.com</a></p>
+  <nav aria-label="목차"><ol><li><a href="#section-1">적용 범위와 문의</a></li><li><a href="#section-2">기기에 저장하는 정보</a></li><li><a href="#section-3">증권사 연결과 전송 목적</a></li><li><a href="#section-4">체험·가상투자와 공개 시장정보</a></li><li><a href="#section-5">백그라운드 동작과 권한</a></li><li><a href="#section-6">외부 서비스와 국외 처리 가능성</a></li><li><a href="#section-7">보유 기간과 삭제</a></li><li><a href="#section-8">계정, 광고, 진단자료</a></li><li><a href="#section-9">연령과 방침 변경</a></li></ol></nav>
+  <section id="section-1"><h2>1. 적용 범위와 문의</h2><p>이 방침은 AVS MOBILE PRO(com.avs.aaa)의 개인정보 처리에 적용됩니다. 앱 개인정보 관련 문의와 열람·정정·삭제 요청은 help@alphavipertrading.com으로 접수할 수 있습니다. 문의 시 App Secret, 인증 토큰, 계좌 비밀번호를 보내지 마세요.</p></section>
+  <section id="section-2"><h2>2. 기기에 저장하는 정보</h2><p>사용자가 연결한 증권사, 투자 환경, App Key·App Secret, 계좌번호 또는 accountSeq, 계좌 상품코드와 인증 토큰을 기기에 저장합니다. 인증정보는 Android Keystore를 이용해 암호화합니다. 잔고·보유 종목·주문·체결·성과 기록, 관심 종목, 설정, 연결 상태와 오류 기록은 앱의 기기 내 데이터베이스에 저장합니다. 거래 데이터베이스 전체를 별도로 암호화한다고 보장하지 않으므로 기기 잠금과 기기 보안을 유지해 주세요.</p></section>
+  <section id="section-3"><h2>3. 증권사 연결과 전송 목적</h2><p>모의·실전 계좌를 연결하면 인증, 잔고·시세·체결 조회 및 사용자가 지시하거나 설정한 주문을 처리하기 위해 해당 증권사의 공식 API로 필요한 인증정보, 계좌 식별정보와 주문 내용을 전송합니다. 연결 대상은 한국투자증권, 키움증권, 토스증권, DB증권, LS증권 또는 KB증권 중 사용자가 선택한 증권사입니다. Google Play 배포본은 HTTPS·WSS 암호화 연결을 사용하며, 한국투자증권의 비암호화 실시간 소켓 대신 HTTPS 조회로 갱신합니다. 웹사이트 직접 배포본의 기존 한국투자증권 실시간 시세 구독은 ws:// 연결로 승인키와 조회 종목을 전송할 수 있습니다. 거래 주문 API는 HTTPS를 사용합니다. AVS 운영자의 웹서버로 증권사 App Secret이나 계좌 인증정보를 업로드하는 기능은 없습니다. 증권사가 보관하는 계좌와 거래 기록에는 해당 증권사의 방침이 적용됩니다.</p></section>
+  <section id="section-4"><h2>4. 체험·가상투자와 공개 시장정보</h2><p>체험 모드는 모든 사용자에게 제공되며 계정, API 키, 결제 없이 사용할 수 있습니다. 체험종목과 차트는 학습용 샘플이며 실제 시세나 투자성과가 아닙니다. 체험 주문은 기기 내 별도 가상 원장에만 기록되고 증권사 주문을 전송하지 않습니다. 일반 가상투자와 체험 모드는 서로 다릅니다. 일반 모드에서는 NAVER의 공개 종목·차트, Yahoo Finance의 시장정보, 매일경제 RSS 및 공개 시장정보 저장소(Supabase)를 조회할 수 있습니다. 이러한 요청에는 접속 IP, 요청 시각, 조회 종목 등 통신에 필요한 정보가 해당 서비스에 전달될 수 있습니다. 체험 중에도 앱 업데이트 확인 및 사용자가 여는 외부 웹사이트는 네트워크를 이용할 수 있습니다.</p></section>
+  <section id="section-5"><h2>5. 백그라운드 동작과 권한</h2><p>인터넷·네트워크 상태 권한은 조회와 연결 복구에 사용합니다. 사용자가 시작한 자동매매와 시세 감시는 포그라운드 서비스 및 지속 알림으로 동작하며 앱의 중지 명령으로 종료할 수 있습니다. 알림, 배터리 최적화 예외, 정확한 알람과 재부팅 후 복구는 사용자가 설정한 운용·주문 일정과 연결 유지에 사용합니다. 위치·연락처·카메라는 요구하지 않습니다. 광고 표시를 위해 Google Mobile Ads SDK가 Android 광고 ID 또는 기기 식별자, IP 주소, 광고 상호작용 및 진단 정보를 처리할 수 있습니다. Google Play 배포본은 외부 APK 설치 권한을 요구하지 않습니다.</p></section>
+  <section id="section-6"><h2>6. 외부 서비스와 국외 처리 가능성</h2><p>앱 업데이트 확인은 Google Play 및 alphavipertrading.com의 버전 안내를 이용합니다. Google Play 인앱 업데이트 라이브러리는 업데이트 제공 여부와 크기 확인을 위해 기기 메타데이터, 앱 버전, 설치된 모듈·애셋 팩 목록을 처리합니다. Google은 이 데이터를 암호화해 처리하며 자체 보유 기간을 적용합니다. 제품 웹사이트는 Vercel을 사용합니다. 공개 시장정보와 웹사이트 제공자, Google, Yahoo 및 Supabase의 인프라는 대한민국 외 지역에서 요청을 처리할 수 있으며 각 제공자의 운영·보안 로그에 대한 방침이 적용됩니다. 사용자가 문의를 보내면 회신 연락처와 문의 내용이 고객지원에 사용되며 웹 문의 양식의 메일 전달에는 Resend가 사용됩니다. 증권사 인증정보를 문의나 첨부파일에 넣지 마세요.</p></section>
+  <section id="section-7"><h2>7. 보유 기간과 삭제</h2><p>기기 내 정보는 사용자가 앱 저장 데이터를 삭제하거나 앱을 제거할 때까지 유지됩니다. Android 설정에서 앱 &gt; AVS MOBILE PRO &gt; 저장공간 &gt; 데이터 삭제를 사용하면 기기에 저장된 인증정보, 거래 기록, 관심 종목 및 설정을 삭제할 수 있습니다. 삭제 전에 자동매매를 중지하고 필요한 기록을 내보내세요. 앱 데이터 삭제는 증권사 계좌 해지, 증권사 주문 취소 또는 증권사가 법령에 따라 보관하는 거래 기록의 삭제를 의미하지 않습니다. 사용자가 내보낸 파일은 선택한 저장 위치에서 별도로 삭제해야 합니다. 고객지원 요청 정보의 삭제는 위 문의 주소로 요청할 수 있으며, 법적 의무나 분쟁 대응으로 보존이 필요한 경우 그 사유와 범위를 안내합니다. 외부 제공자의 통신 로그는 각 제공자의 보존 정책을 따릅니다.</p></section>
+  <section id="section-8"><h2>8. 계정, 광고, 진단자료</h2><p>AVS 자체 회원가입, 유료 구독 또는 앱 내 결제 기능은 없습니다. 증권사 계좌는 해당 증권사가 관리합니다. 종목 분석 화면에는 Google AdMob 배너 광고가 표시될 수 있습니다. Google Mobile Ads SDK는 광고 제공·측정·부정 사용 방지를 위해 Android 광고 ID 또는 기기 식별자, IP 주소, 광고 상호작용 및 진단 정보를 처리할 수 있으며, Google의 개인정보처리방침과 광고 기술 정책이 적용됩니다. AVS는 증권사 App Secret, 인증 토큰, 계좌 식별정보, 주문·체결 데이터 또는 자동매매 설정을 AdMob에 전송하지 않습니다. 거래·오류 로그 내보내기는 사용자가 직접 실행하고 저장 위치를 선택하는 기능이며 자동 고객지원 전송이 아닙니다. 파일에는 거래·운용 정보가 포함될 수 있으므로 공유 전에 내용을 확인하세요.</p></section>
+  <section id="section-9"><h2>9. 연령과 방침 변경</h2><p>이 앱은 만 18세 이상을 대상으로 합니다. 투자에는 원금 손실 위험이 있으며 체험 결과, 후보 점수와 자동매매 설정은 수익을 보장하지 않습니다. 기능이나 데이터 처리 방식이 바뀌면 적용일과 본 방침을 갱신하고 필요한 경우 별도 안내 또는 동의를 제공합니다.</p></section>
+</main>
+<footer><div><p>이 문서는 AVS MOBILE PRO에 적용됩니다. 웹사이트 문의 양식의 개인정보 안내는 <a href="https://www.alphavipertrading.com/privacy">웹사이트 개인정보처리방침</a>에서 확인할 수 있습니다.</p><a href="#">맨 위로</a></div></footer>
+</body>
+</html>

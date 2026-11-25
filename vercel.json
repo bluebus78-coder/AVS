@@ -1,0 +1,107 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "buildCommand": "npm run verify:release",
+  "outputDirectory": ".",
+  "crons": [
+    {
+      "path": "/api/data-refresh",
+      "schedule": "20 21 * * *"
+    }
+  ],
+  "functions": {
+    "api/krx-data.js": {
+      "maxDuration": 60,
+      "regions": [
+        "sin1"
+      ]
+    },
+    "api/krx-research.js": {
+      "maxDuration": 60,
+      "regions": [
+        "sin1"
+      ]
+    },
+    "api/financial-research.js": {
+      "maxDuration": 300,
+      "regions": [
+        "sin1"
+      ]
+    },
+    "api/data-refresh.js": {
+      "maxDuration": 240,
+      "regions": [
+        "sin1"
+      ]
+    },
+    "api/data-hub.js": {
+      "maxDuration": 60,
+      "regions": [
+        "sin1"
+      ]
+    }
+  },
+  "headers": [
+    {
+      "source": "/mobile/update.json",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        }
+      ]
+    },
+    {
+      "source": "/mobile/update-play.json",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        }
+      ]
+    },
+    {
+      "source": "/downloads/mobile/(.*).apk",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/vnd.android.package-archive"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        }
+      ]
+    }
+  ],
+  "ignoreCommand": "test \"$(git log -1 --pretty=%s)\" = 'Keep current AVS website source and verified download links [skip ci]'"
+}

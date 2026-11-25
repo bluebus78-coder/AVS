@@ -1,0 +1,208 @@
+const MAX_MESSAGE_LENGTH = 4000;
+const MAX_ATTACHMENT_FILES = 3;
+const MAX_ATTACHMENT_BYTES = 3 * 1024 * 1024;
+const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const ALLOWED_ATTACHMENT_EXTENSIONS = new Set([
+  "zip",
+  "log",
+  "txt",
+  "json",
+  "csv",
+  "png",
+  "jpg",
+  "jpeg",
+  "webp",
+]);
+
+function sendJson(res, statusCode, body) {
+  return res.status(statusCode).json(body);
+}
+
+function getRequiredEnv() {
+  return {
+    to: process.env.CONTACT_TO,
+    from: process.env.CONTACT_FROM,
+    resendKey: process.env.RESEND_API_KEY,
+  };
+}
+
+function escapeHtml(value) {
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
+function cleanFilename(value) {
+  return String(value || "attachment")
+    .replace(/[\\/]/g, "_")
+    .replace(/[^\w .()\-[\]\u3131-\u318e\uac00-\ud7a3]/g, "_")
+    .slice(0, 120) || "attachment";
+}
+
+function getFileExtension(filename) {
+  const parts = String(filename || "").toLowerCase().split(".");
+  return parts.length > 1 ? parts.pop() : "";
+}
+
+function normalizeAttachments(value) {
+  const input = Array.isArray(value) ? value : [];
+
+  if (input.length > MAX_ATTACHMENT_FILES) {
+    return { error: `첨부파일은 최대 ${MAX_ATTACHMENT_FILES}개까지 가능합니다.` };
+  }
+
+  let totalSize = 0;
+  const attachments = [];
+  const attachmentLines = [];
+
+  for (const item of input) {
+    const filename = cleanFilename(item.filename);
+    const extension = getFileExtension(filename);
+
+    if (!ALLOWED_ATTACHMENT_EXTENSIONS.has(extension)) {
+      return { error: "첨부 가능한 파일은 ZIP, LOG, TXT, JSON, CSV, PNG, JPG, WEBP입니다." };
+    }
+
+    const content = String(item.content || "");
+    if (!content) {
+      return { error: "첨부파일 내용이 비어 있습니다." };
+    }
+
+    let bytes;
+    try {
+      bytes = Buffer.from(content, "base64");
+    } catch {
+      return { error: "첨부파일 인코딩을 확인해 주세요." };
+    }
+
+    totalSize += bytes.length;
+    if (totalSize > MAX_ATTACHMENT_BYTES) {
+      return { error: "첨부파일 전체 용량은 3MB 이하로 등록해 주세요." };
+    }
+
+    attachments.push({ filename, content });
+    attachmentLines.push(`- ${filename} (${bytes.length.toLocaleString("ko-KR")} bytes)`);
+  }
+
+  return { attachments, attachmentLines };
+}
+
+export default async function handler(req, res) {
+  if (req.method !== "POST") {
+    res.setHeader("Allow", "POST");
+    return sendJson(res, 405, { ok: false, message: "허용되지 않는 요청입니다." });
+  }
+
+  try {
+    const body = typeof req.body === "string" ? JSON.parse(req.body || "{}") : (req.body || {});
+    const name = String(body.name || "").trim();
+    const contact = String(body.contact || "").trim();
+    const message = String(body.message || "").trim();
+    const consent = Boolean(body.consent);
+
+    if (!name || !contact || !message || !consent) {
+      return sendJson(res, 400, {
+        ok: false,
+        message: "필수 항목과 개인정보 수집 동의를 확인해 주세요.",
+      });
+    }
+
+    if (message.length > MAX_MESSAGE_LENGTH) {
+      return sendJson(res, 400, {
+        ok: false,
+        message: "접수 내용은 4,000자 이내로 입력해 주세요.",
+      });
+    }
+
+    const normalized = normalizeAttachments(body.attachments);
+    if (normalized.error) {
+      return sendJson(res, 400, { ok: false, message: normalized.error });
+    }
+
+    const { to, from, resendKey } = getRequiredEnv();
+
+    if (!to || !from || !resendKey) {
+      return sendJson(res, 503, {
+        ok: false,
+        code: "MAIL_ENV_MISSING",
+        message: "메일 전송 환경이 설정되지 않았습니다.",
+      });
+    }
+
+    const isBugReport = message.startsWith("[오류 유형]");
+    const mailTitle = isBugReport ? "DK블라썸 오류·기술지원 접수" : "DK블라썸 제작·교육·제품 상담";
+    const attachmentText = normalized.attachmentLines.length
+      ? ["", "첨부파일:", ...normalized.attachmentLines].join("\n")
+      : "";
+    const attachmentHtml = normalized.attachmentLines.length
+      ? `<p><strong>첨부파일</strong><br>${normalized.attachmentLines.map(escapeHtml).join("<br>")}</p>`
+      : "";
+
+    const emailBody = [
+      mailTitle,
+      "",
+      `이름: ${name}`,
+      `연락처: ${contact}`,
+      "",
+      "접수 내용:",
+      message,
+      attachmentText,
+    ].join("\n");
+
+    const emailHtml = `
+      <div style="font-family:Arial,'Noto Sans KR',sans-serif;line-height:1.65;color:#111827">
+        <h2 style="margin:0 0 16px">${mailTitle}</h2>
+        <p><strong>이름</strong><br>${escapeHtml(name)}</p>
+        <p><strong>연락처</strong><br>${escapeHtml(contact)}</p>
+        <p><strong>접수 내용</strong><br>${escapeHtml(message).replace(/\n/g, "<br>")}</p>
+        ${attachmentHtml}
+      </div>
+    `;
+
+    const mailPayload = {
+      from,
+      to,
+      subject: isBugReport ? "[DK블라썸] 오류·기술지원 접수" : "[DK블라썸] 제작·교육·제품 상담",
+      text: emailBody,
+      html: emailHtml,
+    };
+
+    if (normalized.attachments.length) {
+      mailPayload.attachments = normalized.attachments;
+    }
+
+    if (EMAIL_PATTERN.test(contact)) {
+      mailPayload.reply_to = contact;
+    }
+
+    const response = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${resendKey}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(mailPayload),
+    });
+
+    if (!response.ok) {
+      const detail = await response.text();
+      return sendJson(res, 502, {
+        ok: false,
+        code: "MAIL_PROVIDER_ERROR",
+        message: "메일 전송 서비스 응답을 확인해야 합니다.",
+        detail,
+      });
+    }
+
+    return sendJson(res, 200, { ok: true, message: "정상 접수되었습니다." });
+  } catch (error) {
+    return sendJson(res, 500, {
+      ok: false,
+      message: "접수 처리 중 오류가 발생했습니다.",
+      detail: error.message,
+    });
+  }
+}

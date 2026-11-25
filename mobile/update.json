@@ -1,0 +1,18 @@
+{
+  "packageName": "com.avs.aaa",
+  "versionCode": 274,
+  "versionName": "11.9",
+  "minimumSupportedVersionCode": 103,
+  "published": true,
+  "mandatory": false,
+  "channel": "direct",
+  "title": "AVS MOBILE PRO 11.9",
+  "notes": [
+    "제품 구분, 실행 여부 등 최소 항목만 보내 제품별 일일 실행 건수를 집계합니다.",
+    "기존 매매 설정과 광고·구매 처리 방식은 유지합니다."
+  ],
+  "apkUrl": "https://dkblossom.co.kr/downloads/mobile/AVS_Mobile_11.9.apk",
+  "sha256": "893C8FD90407C9CB1C63085BA1FB076B170434F76B232604BF21BDB1C66E00A9",
+  "playUrl": "https://play.google.com/store/apps/details?id=com.avs.aaa",
+  "publishedAt": "2026-11-24T01:22:50.064Z"
+}
